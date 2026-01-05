@@ -6,11 +6,11 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet.photon.css">
+        <link rel="stylesheet" href="docs/css/leaflet.css">
+        <link rel="stylesheet" href="docs/css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="docs/css/qgis2web.css">
+        <link rel="stylesheet" href="docs/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="docs/css/leaflet.photon.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -42,7 +42,7 @@
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[34.0788363710812,130.9840172327037],[39.13747150279491,138.01031355628575]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('<a href="docs/https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="docs/https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="docs/https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         // remove popup's row if "visible-with-data"
         function removeEmptyRowsFromPopupContent(content, feature) {
