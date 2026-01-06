@@ -50,7 +50,7 @@ map.addLayer({
   type: 'circle',
   source: 'points',
   paint: {
-    'circle-radius': 10,
+    'circle-radius': 12,
     'circle-color': '#ff5722'
   }
 });
@@ -60,7 +60,8 @@ map.addLayer({
   source: 'points',
   layout: {
     'text-field': ['to-string', ['get', 'no']],
-    'text-size': 12,
+    'text-size': 8,
+    'text-letter-spacing': -0.1
     'text-anchor': 'center'
   },
   paint: {
@@ -74,14 +75,18 @@ map.addLayer({
   minzoom: 8,
   layout: {
     'text-field': ['get', 'name'],
-    'text-size': 11,
-    'text-offset': [0, 1.4],
+    'text-size': 12,
+    'text-font': ['Open Sans Bold'],
+    'text-offset': [0, 1.6],
     'text-anchor': 'top'
   },
   paint: {
-    'text-color': '#333333'
+    'text-color': '#333333',
+    'text-halo-color': '#ffffff',
+    'text-halo-width': 1.5
   }
 });
+
 
 });
 </script>
