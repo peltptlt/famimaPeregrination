@@ -50,8 +50,11 @@ map.addLayer({
   type: 'circle',
   source: 'points',
   paint: {
+    'circle-color': '#1565c0',   // 濃い青
     'circle-radius': 12,
-    'circle-color': '#ff0000'
+    'circle-stroke-color': '#ffffff',
+    'circle-stroke-width': 2
+
   }
 });
 
@@ -67,7 +70,10 @@ map.addLayer({
   },
   paint: {
     'text-color': '#ffffff',
+    'text-halo-color': '#000000',
+    'text-halo-width': 1
   }
+
 });
 
 map.addLayer({
@@ -85,10 +91,11 @@ map.addLayer({
     'text-ignore-placement': true
   },
   paint: {
-    'text-color': '#333333',
+    'text-color': '#111111',
     'text-halo-color': '#ffffff',
-    'text-halo-width': 1.5
+    'text-halo-width': 2
   }
+
 });
 
 
