@@ -6,11 +6,10 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet.photon.css">
+        <link rel="stylesheet" href="./css/leaflet.css">
+        <link rel="stylesheet" href="./css/qgis2web.css">
+        <link rel="stylesheet" href="./css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="./css/leaflet.photon.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -24,23 +23,22 @@
     <body>
         <div id="map">
         </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/L.Control.Layers.Tree.min.js"></script>
-        <script src="js/multi-style-layer.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet.photon.js"></script>
-        <script src="data/spots_1.js"></script>
+        <script src="./js/qgis2web_expressions.js"></script>
+        <script src="./js/leaflet.js"></script>
+        <script src="./js/multi-style-layer.js"></script>
+        <script src="./js/leaflet.rotatedMarker.js"></script>
+        <script src="./js/leaflet.pattern.js"></script>
+        <script src="./js/leaflet-hash.js"></script>
+        <script src="./js/Autolinker.min.js"></script>
+        <script src="./js/rbush.min.js"></script>
+        <script src="./js/labelgun.min.js"></script>
+        <script src="./js/labels.js"></script>
+        <script src="./js/leaflet.photon.js"></script>
+        <script src="./data/spots_1.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:false, maxZoom:8, minZoom:1
-        }).fitBounds([[32.80839069973935,130.06084963896262],[37.946623033941485,141.0438824295771]]);
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[32.81409576950797,130.06084963896262],[37.95197577067934,141.0438824295771]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -118,7 +116,7 @@
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
-            maxZoom: 8,
+            maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
@@ -130,12 +128,10 @@
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">id</th>\
-                        <td>' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">name</th>\
-                        <td class="visible-with-data" id="name">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['rename'] !== null ? autolinker.link(String(feature.properties['rename']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -211,6 +207,18 @@
         ]});
         bounds_group.addLayer(layer_spots_1);
         map.addLayer(layer_spots_1);
+        map.on("zoomend", function(e) {
+            if (map.getZoom() <= 13 && map.getZoom() >= 19) {
+                map.addLayer(layer_spots_1);
+            } else if (map.getZoom() > 13 || map.getZoom() < 19) {
+                map.removeLayer(layer_spots_1);
+            }
+        });
+            if (map.getZoom() <= 13 && map.getZoom() >= 19) {
+                map.addLayer(layer_spots_1);
+            } else if (map.getZoom() > 13 || map.getZoom() < 19) {
+                map.removeLayer(layer_spots_1);
+            }
         setBounds();
         var i = 0;
         layer_spots_1.eachLayer(function(layer) {
