@@ -44,15 +44,44 @@ map.on('load', () => {
     data: 'spots.geojson'
   });
 
-  map.addLayer({
-    id: 'points',
-    type: 'circle',
-    source: 'points',
-    paint: {
-      'circle-radius': 6,
-      'circle-color': '#ff0000'
-    }
-  });
+map.addLayer({
+  id: 'points-circle',
+  type: 'circle',
+  source: 'points',
+  paint: {
+    'circle-radius': 10,
+    'circle-color': '#ff5722'
+  }
+});
+map.addLayer({
+  id: 'points-number',
+  type: 'symbol',
+  source: 'points',
+  layout: {
+    'text-field': ['to-string', ['get', 'no']],
+    'text-size': 12,
+    'text-anchor': 'center'
+  },
+  paint: {
+    'text-color': '#ffffff'
+  }
+});
+map.addLayer({
+  id: 'points-label',
+  type: 'symbol',
+  source: 'points',
+  minzoom: 8,
+  layout: {
+    'text-field': ['get', 'name'],
+    'text-size': 11,
+    'text-offset': [0, 1.4],
+    'text-anchor': 'top'
+  },
+  paint: {
+    'text-color': '#333333'
+  }
+});
+
 });
 </script>
 </body>
