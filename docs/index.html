@@ -54,6 +54,7 @@ map.addLayer({
     'circle-color': '#ff5722'
   }
 });
+
 map.addLayer({
   id: 'points-number',
   type: 'symbol',
@@ -65,9 +66,12 @@ map.addLayer({
     'text-anchor': 'center'
   },
   paint: {
-    'text-color': '#ffffff'
+    'text-color': '#ffffff',
+    'text-halo-color': '#000000',
+    'text-halo-width': 0.5
   }
 });
+
 map.addLayer({
   id: 'points-label',
   type: 'symbol',
