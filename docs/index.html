@@ -76,6 +76,7 @@ map.on('load', () => {
     ],
     'text-font': ['Open Sans Semibold'],
     'text-anchor': 'center',
+    'icon-allow-overlap': true,
     'text-allow-overlap': true
     },
     paint: {
@@ -108,6 +109,30 @@ map.on('load', () => {
   });
   
 });
+
+map.on('click', 'points-number', (e) => {
+  const f = e.features[0];
+
+  const html = `
+    <div style="font-size:13px; line-height:1.4;">
+      <b>${f.properties.no}</b><br>
+      ${f.properties.name || ''}
+    </div>
+  `;
+
+  new maplibregl.Popup({ offset: 12 })
+    .setLngLat(f.geometry.coordinates)
+    .setHTML(html)
+    .addTo(map);
+});
+map.on('mouseenter', 'points-number', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+map.on('mouseleave', 'points-number', () => {
+  map.getCanvas().style.cursor = '';
+});
+
 </script>
 </body>
 </html>
