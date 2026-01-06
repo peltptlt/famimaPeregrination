@@ -50,32 +50,32 @@ map.on('load', () => {
     type: 'circle',
     source: 'points',
     paint: {
-      'circle-color': '#00843D',
-      'circle-radius': 12,
-      'circle-stroke-color': '#ffffff',
-      'circle-stroke-width': 1
-
+    'circle-radius': 14,
+    'circle-color': '#1e8e3e',      // Google系グリーン
+    'circle-stroke-color': '#ffffff',
+    'circle-stroke-width': 1.5
     }
   });
-
+  
   map.addLayer({
     id: 'points-number',
     type: 'symbol',
     source: 'points',
     layout: {
-      'text-field': ['to-string', ['get', 'no']],
-      'text-size': 10,
-      'text-letter-spacing': -0.1,
-      'text-anchor': 'center'
+    'text-field': ['to-string', ['get', 'no']],
+    'text-size': 11,
+    'text-font': ['Open Sans Semibold'],
+    'text-anchor': 'center',
+    'text-allow-overlap': true
     },
     paint: {
-      'text-color': '#ffffff',
-      'text-halo-color': '#000000',
-      'text-halo-width': 1
+    'text-color': '#ffffff',
+    'text-halo-color': 'rgba(0,0,0,0.25)',
+    'text-halo-width': 1
     }
-
+    
   });
-
+  
   map.addLayer({
     id: 'points-label',
     type: 'symbol',
@@ -84,18 +84,17 @@ map.on('load', () => {
     layout: {
       'text-field': ['get', 'name'],
       'text-size': 12,
-      'text-font': ['Open Sans Bold'],
+      'text-font': ['Open Sans Regular'],
       'text-offset': [0, 1.6],
       'text-anchor': 'top',
       'text-allow-overlap': true,
       'text-ignore-placement': true
     },
     paint: {
-      'text-color': '#111111',
+      'text-color': '#202124',        // Googleの文字色
       'text-halo-color': '#ffffff',
       'text-halo-width': 2
     }
-
   });
   
 });
