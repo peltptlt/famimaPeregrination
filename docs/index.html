@@ -92,7 +92,7 @@ map.on('load', () => {
     source: 'points',
     minzoom: 8,
     layout: {
-      'text-field': 'TEST',
+      'text-field': ['get', 'name'],
       'text-size': 12,
       'text-font': ['Open Sans Semibold'],
       'text-offset': [0, 1.6],
