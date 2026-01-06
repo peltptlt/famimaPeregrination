@@ -48,7 +48,7 @@ map.on('load', () => {
 map.addLayer({
   id: 'points-circle',
   type: 'circle',
-  source: 'spots',
+  source: 'points',
   paint: {
     'circle-color': '#00843D',
     'circle-radius': 12,
@@ -61,7 +61,7 @@ map.addLayer({
 map.addLayer({
   id: 'points-number',
   type: 'symbol',
-  source: 'spots',
+  source: 'points',
   layout: {
     'text-field': ['to-string', ['get', 'no']],
     'text-size': 8,
@@ -79,7 +79,7 @@ map.addLayer({
 map.addLayer({
   id: 'points-label',
   type: 'symbol',
-  source: 'spots',
+  source: 'points',
   minzoom: 8,
   layout: {
     'text-field': ['get', 'name'],
