@@ -109,7 +109,7 @@ map.on('load', () => {
   map.on('click', 'points-number', (e) => {
     const f = e.features[0];
     
-    const name =
+    const locate =
     (f.properties.rename && f.properties.rename.trim() !== '')
     ? "→"f.properties.rename
     : (f.properties.name || '');
@@ -117,7 +117,7 @@ map.on('load', () => {
     const html = `
       <div style="font-size:13px; line-height:1.4;">
         <b>${f.properties.no}</b><br>
-        ${name}<br>
+        ${locate}<br>
         ${f.properties.address || ''}
       </div>
     `;
