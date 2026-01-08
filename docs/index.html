@@ -53,7 +53,6 @@ map.on('load', () => {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
       5, 10,
-      10, 14,
       ],
     'circle-color': '#1e8e3e',      // Google系グリーン
     'circle-stroke-color': '#ffffff',
@@ -110,7 +109,7 @@ map.on('load', () => {
   map.on('click', 'points-number', (e) => {
     const f = e.features[0];
     
-    const rename =
+    const name =
     (f.properties.rename && f.properties.rename.trim() !== '')
     ? "→"f.properties.rename
     : (f.properties.name || '');
@@ -118,7 +117,7 @@ map.on('load', () => {
     const html = `
       <div style="font-size:13px; line-height:1.4;">
         <b>${f.properties.no}</b><br>
-        ${rename}<br>
+        ${name}<br>
         ${f.properties.address || ''}
       </div>
     `;
