@@ -52,8 +52,7 @@ map.on('load', () => {
     paint: {
     'circle-radius': [
       'interpolate', ['linear'], ['zoom'],
-      5, 10,
-      10, 14
+      5, 10
       ],
     'circle-color': '#1e8e3e',      // Google系グリーン
     'circle-stroke-color': '#ffffff',
@@ -112,7 +111,7 @@ map.on('load', () => {
     
     const title =
     (f.properties.rename && f.properties.rename.trim() !== '')
-    ? "→" + f.properties.rename
+    ? f.properties.name<br> + "→" + f.properties.rename
     : (f.properties.name || '');
     
     const html = `
