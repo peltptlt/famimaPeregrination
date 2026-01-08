@@ -110,12 +110,17 @@ map.on('load', () => {
   
   map.on('click', 'points-number', (e) => {
     const f = e.features[0];
-  
+    
+    const rename =
+    (f.properties.rename && f.properties.rename.trim() !== '')
+    ? f.properties.rename
+    : (f.properties.name || '');
+    
     const html = `
       <div style="font-size:13px; line-height:1.4;">
         <b>${f.properties.no}</b><br>
         ${f.properties.name || ''}<br>
-        "→"${f.properties.rename || ''}<br>
+        ${rename}<br>
         ${f.properties.address || ''}
       </div>
     `;
