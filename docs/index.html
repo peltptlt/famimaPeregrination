@@ -44,7 +44,21 @@ map.on('load', () => {
     type: 'geojson',
     data: 'spots.geojson'
   });
-
+  
+  map.addLayer({
+    id: 'points-circle-outline',
+    type: 'circle',
+    source: 'points',
+    paint: {
+      'circle-radius': [
+        'interpolate', ['linear'], ['zoom'],
+        5, 12,
+        10, 16
+      ],
+      'circle-color': '#ffffff'
+    }
+  });
+  
   map.addLayer({
     id: 'points-circle',
     type: 'circle',
@@ -87,20 +101,6 @@ map.on('load', () => {
     
   });
   
-  map.addLayer({
-    id: 'points-circle-outline',
-    type: 'circle',
-    source: 'points',
-    paint: {
-      'circle-radius': [
-        'interpolate', ['linear'], ['zoom'],
-        5, 12,
-        10, 16
-      ],
-      'circle-color': '#ffffff'
-    }
-  });
-
   map.addLayer({
     id: 'points-circle',
     type: 'circle',
