@@ -112,7 +112,7 @@ map.on('load', () => {
     
     const rename =
     (f.properties.rename && f.properties.rename.trim() !== '')
-    ? f.properties.rename
+    ? "→"f.properties.rename
     : (f.properties.name || '');
     
     const html = `
