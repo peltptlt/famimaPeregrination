@@ -3,11 +3,25 @@
 <head>
 <meta charset="utf-8">
 <title>ファミマ行脚</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
 <style>
 html, body, #map { margin:0; height:100%; width:100%; }
+
+.maplibregl-popup {
+  font-size: 14px;
+}
+.maplibregl-popup-content {
+  padding: 10px 12px;
+}
+.maplibregl-popup-close-button {
+  font-size: 18px;
+}
 </style>
 </head>
+
 <body>
 <div id="map"></div>
 
@@ -23,28 +37,31 @@ const map = new maplibregl.Map({
     sources: {
       osm: {
         type: 'raster',
-        tiles: [
-          'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-        ],
+        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
         tileSize: 256
       }
     },
-    layers: [
-      {
-        id: 'osm',
-        type: 'raster',
-        source: 'osm'
-      }
-    ]
+    layers: [{
+      id: 'osm',
+      type: 'raster',
+      source: 'osm'
+    }]
   }
 });
 
+map.addControl(
+  new maplibregl.NavigationControl({ visualizePitch: false }),
+  'bottom-right'
+);
+
 map.on('load', () => {
+
   map.addSource('points', {
     type: 'geojson',
     data: 'spots.geojson'
   });
-  
+
+  // 外枠（白）
   map.addLayer({
     id: 'points-circle-outline',
     type: 'circle',
@@ -58,95 +75,107 @@ map.on('load', () => {
       'circle-color': '#ffffff'
     }
   });
-  
+
+  // 中身（緑）
   map.addLayer({
-    id: 'points-circle',
-    type: 'circle',
-    source: 'points',
-    paint: {
-    'circle-radius': [
-      'interpolate', ['linear'], ['zoom'],
-      5, 10,
-      10, 14,
-      15, 18
-      ],
-    'circle-color': '#1e8e3e',      // Google系グリーン
-    'circle-stroke-color': '#ffffff',
-    'circle-stroke-width': 1.5
-    }
-  });
-  
-  map.addLayer({
-    id: 'points-number',
-    type: 'symbol',
-    source: 'points',
-    layout: {
-    'text-field': ['to-string', ['get', 'no']],
-    'text-size': [
-      'interpolate', ['linear'], ['zoom'],
-      5, 9,
-      10, 11,
-      15, 13
-    ],
-    'text-font': ['Open Sans Semibold'],
-    'text-anchor': 'center',
-    'icon-allow-overlap': true,
-    'text-allow-overlap': true
-    },
-    paint: {
-    'text-color': '#ffffff',
-    'text-halo-color': 'rgba(0,0,0,0.25)',
-    'text-halo-width': 1
-    }
-    
-  });
-  
-  map.addLayer({
-    id: 'points-circle',
+    id: 'points-circle-inner',
     type: 'circle',
     source: 'points',
     paint: {
       'circle-radius': [
         'interpolate', ['linear'], ['zoom'],
         5, 10,
-        10, 14
+        10, 14,
+        15, 18
       ],
-      'circle-color': '#1e8e3e'   // Google系グリーン
+      'circle-color': '#1e8e3e'
     }
   });
-  
+
+  // 番号
+  map.addLayer({
+    id: 'points-number',
+    type: 'symbol',
+    source: 'points',
+    layout: {
+      'text-field': ['to-string', ['get', 'no']],
+      'text-size': [
+        'interpolate', ['linear'], ['zoom'],
+        5, 11,
+        10, 13,
+        15, 15
+      ],
+      'text-font': ['Open Sans Semibold'],
+      'text-anchor': 'center',
+      'text-allow-overlap': true
+    },
+    paint: {
+      'text-color': '#ffffff',
+      'text-halo-color': 'rgba(0,0,0,0.3)',
+      'text-halo-width': 1
+    }
+  });
+
+  // ラベル
+  map.addLayer({
+    id: 'points-label',
+    type: 'symbol',
+    source: 'points',
+    minzoom: 9,
+    layout: {
+      'text-field': ['get', 'name'],
+      'text-size': 12,
+      'text-font': ['Open Sans Semibold'],
+      'text-offset': [0, 1.6],
+      'text-anchor': 'top',
+      'text-allow-overlap': true,
+      'text-ignore-placement': true
+    },
+    paint: {
+      'text-color': '#202124',
+      'text-halo-color': '#ffffff',
+      'text-halo-width': 2
+    }
+  });
+
+  // クリックポップアップ
   map.on('click', 'points-number', (e) => {
     const f = e.features[0];
-    
+
     const title =
-    (f.properties.rename && f.properties.rename.trim() !== '')
-    ? `${f.properties.name}<br>→ ${f.properties.rename}`
-    : (f.properties.name || '');
-    
+      (f.properties.rename && f.properties.rename.trim() !== '')
+        ? `${f.properties.name}<br>→ ${f.properties.rename}`
+        : (f.properties.name || '');
+
     const html = `
-      <div style="font-size:13px; line-height:1.4;">
+      <div style="line-height:1.4;">
         <b>${f.properties.no}</b><br>
         ${title}<br>
         ${f.properties.address || ''}
       </div>
     `;
-  
-    new maplibregl.Popup({ offset: 12 })
-      .setLngLat(f.geometry.coordinates)
-      .setHTML(html)
-      .addTo(map);
+
+    new maplibregl.Popup({
+      offset: 12,
+      closeButton: true,
+      closeOnClick: true,
+      maxWidth: '90vw'
+    })
+    .setLngLat(f.geometry.coordinates)
+    .setHTML(html)
+    .addTo(map);
   });
+
   map.on('mouseenter', 'points-number', () => {
     map.getCanvas().style.cursor = 'pointer';
   });
-  
+
   map.on('mouseleave', 'points-number', () => {
     map.getCanvas().style.cursor = '';
   });
-  
+
+  map.once('idle', () => map.resize());
 });
-
-
 </script>
 </body>
 </html>
