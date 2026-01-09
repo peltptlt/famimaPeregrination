@@ -122,7 +122,10 @@ map.on('load', () => {
   map.addSource('points', {
     type: 'geojson',
     data: 'famimaPeregrination.geojson'
-  });
+    tolerance: 0,     // 簡略化しない
+    buffer: 0,        // タイル外バッファ無効
+    maxzoom: 18       // 高ズームまで正確に
+});
 
   // 外枠（白）
   map.addLayer({
