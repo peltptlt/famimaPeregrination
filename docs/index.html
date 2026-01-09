@@ -116,16 +116,13 @@ map.on('load', () => {
   fetch('famimaPeregrination.geojson')
   .then(res => res.json())
   .then(json => {
-    allPoints = json.features;
+    allPoints = json.features || [];
   });
 
   map.addSource('points', {
     type: 'geojson',
     data: 'famimaPeregrination.geojson'
-    tolerance: 0,     // 簡略化しない
-    buffer: 0,        // タイル外バッファ無効
-    maxzoom: 18       // 高ズームまで正確に
-});
+  });
 
   // 外枠（白）
   map.addLayer({
@@ -187,7 +184,7 @@ map.on('load', () => {
     id: 'points-label',
     type: 'symbol',
     source: 'points',
-    minzoom: 4,
+    minzoom: 8,
     layout: {
       'text-field': ['get', 'name'],
       'text-size': 12,
