@@ -202,7 +202,7 @@ map.on('load', () => {
 
     const title =
       (f.properties.rename && f.properties.rename.trim() !== '')
-        ? `${f.properties.name}<br>→ ${f.properties.rename}`
+        ? `${f.properties.name}<br>${f.properties.rename}`
         : (f.properties.name || '');
 
     const html = `
