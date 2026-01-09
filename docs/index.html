@@ -19,11 +19,35 @@ html, body, #map { margin:0; height:100%; width:100%; }
 .maplibregl-popup-close-button {
   font-size: 18px;
 }
+
+#searchBox {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 360px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 
 <body>
 <div id="map"></div>
+
+<div id="searchBox">
+  <input id="searchInput" type="text" placeholder="店名で検索">
+</div>
 
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 <script>
@@ -175,6 +199,55 @@ map.on('load', () => {
   });
 
   map.once('idle', () => map.resize());
+  
+  const input = document.getElementById('searchInput');
+
+input.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter') return;
+
+  const q = input.value.trim();
+  if (!q) return;
+
+  const features = map.querySourceFeatures('points');
+
+  const hit = features.find(f =>
+    String(f.properties.no) === q ||
+    (f.properties.name && f.properties.name.includes(q)) ||
+    (f.properties.rename && f.properties.rename.includes(q))
+  );
+
+  if (!hit) {
+    alert('見つかりません');
+    return;
+  }
+
+  const title =
+    (hit.properties.rename && hit.properties.rename.trim() !== '')
+      ? `${hit.properties.name}<br>→ ${hit.properties.rename}`
+      : (hit.properties.name || '');
+
+  const html = `
+    <div style="line-height:1.4;">
+      <b>${hit.properties.no}</b><br>
+      ${title}<br>
+      ${hit.properties.address || ''}
+    </div>
+  `;
+
+  map.easeTo({
+    center: hit.geometry.coordinates,
+    zoom: 14
+  });
+
+  new maplibregl.Popup({
+    offset: 12,
+    maxWidth: '90vw'
+  })
+  .setLngLat(hit.geometry.coordinates)
+  .setHTML(html)
+  .addTo(map);
+});
+
 });
 </script>
 </body>
