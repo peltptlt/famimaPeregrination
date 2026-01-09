@@ -113,6 +113,32 @@ map.on('load', () => {
   .then(json => {
     allPoints = json.features || [];
   });
+  
+  // ポップアップ関数
+  function showPopup(feature) {
+    const title =
+      (feature.properties.rename && feature.properties.rename.trim() !== '')
+        ? `${feature.properties.name}<br>${feature.properties.rename}`
+        : (feature.properties.name || '');
+
+    const html = `
+      <div style="line-height:1.4;">
+        <b>${feature.properties.no}</b><br>
+        ${title}<br>
+        ${feature.properties.address || ''}
+      </div>
+    `;
+
+    new maplibregl.Popup({
+      offset: 12,
+      closeButton: true,
+      closeOnClick: true,
+      maxWidth: '90vw'
+    })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML(html)
+    .addTo(map);
+  }
 
   map.addSource('points', {
     type: 'geojson',
@@ -198,30 +224,7 @@ map.on('load', () => {
 
   // クリックポップアップ
   map.on('click', 'points-number', (e) => {
-    const f = e.features[0];
-
-    const title =
-      (f.properties.rename && f.properties.rename.trim() !== '')
-        ? `${f.properties.name}<br>${f.properties.rename}`
-        : (f.properties.name || '');
-
-    const html = `
-      <div style="line-height:1.4;">
-        <b>${f.properties.no}</b><br>
-        ${title}<br>
-        ${f.properties.address || ''}
-      </div>
-    `;
-
-    new maplibregl.Popup({
-      offset: 12,
-      closeButton: true,
-      closeOnClick: true,
-      maxWidth: '90vw'
-    })
-    .setLngLat(f.geometry.coordinates)
-    .setHTML(html)
-    .addTo(map);
+    showPopup(e.features[0]);
   });
 
   map.on('mouseenter', 'points-number', () => {
@@ -259,22 +262,7 @@ map.on('load', () => {
           speed: 1.2
         });
 
-        // ポップアップも表示
-        const title =
-          (f.properties.rename && f.properties.rename.trim() !== '')
-            ? `${f.properties.name}<br>${f.properties.rename}`
-            : (f.properties.name || '');
-
-        new maplibregl.Popup({ offset: 12 })
-          .setLngLat(f.geometry.coordinates)
-          .setHTML(`
-            <div>
-              <b>${f.properties.no}</b><br>
-              ${title}<br>
-              ${f.properties.address || ''}
-            </div>
-          `)
-          .addTo(map);
+        showPopup(e.features[0]);
 
         results.innerHTML = '';
         input.blur();
