@@ -30,13 +30,16 @@ html, body, #map { margin:0; height:100%; width:100%; }
   max-width: 360px;
 }
 
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 #searchInput {
   width: 100%;
-  padding: 10px 14px;
-  font-size: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  padding-right: 42px;
 }
 
 #searchResults {
@@ -68,21 +71,32 @@ html, body, #map { margin:0; height:100%; width:100%; }
 
 #clearBtn {
   position: absolute;
-  right: 10px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   width: 28px;
   height: 28px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
   border: none;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35); /* 半透明 */
+  background: rgba(0, 0, 0, 0.35);
   color: #fff;
+
   font-size: 18px;
-  line-height: 28px;
+  font-weight: bold;
+  line-height: 1;
+
   cursor: pointer;
-  display: none;
-  backdrop-filter: blur(2px);     /* 対応ブラウザのみ */
+  z-index: 2;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
+
 
 #clearBtn:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -102,7 +116,7 @@ html, body, #map { margin:0; height:100%; width:100%; }
 <div id="searchBox">
   <div class="search-wrapper">
     <input id="searchInput" type="text" placeholder="店名で検索">
-    <button id="clearBtn" aria-label="clear">×</button>
+    <button id="clearBtn" type="button" aria-label="clear">×</button>
   </div>
   <div id="searchResults"></div>
 </div>
