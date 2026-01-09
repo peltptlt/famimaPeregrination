@@ -20,7 +20,7 @@ html, body, #map { margin:0; height:100%; width:100%; }
   font-size: 18px;
 }
 
-#searchbox {
+#searchBox {
   position: absolute;
   bottom: 80px;
   left: 50%;
@@ -246,7 +246,7 @@ map.on('load', () => {
     results.innerHTML = '';
     if (!q) return;
 
-    const matched = allFeatures.filter(f =>
+    const matched = allPoints.filter(f =>
       String(f.properties.no).includes(q) ||
       (f.properties.name && f.properties.name.toLowerCase().includes(q))
     ).slice(0, 50); // 件数制限
