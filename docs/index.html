@@ -234,31 +234,50 @@ map.on('load', () => {
 
   map.once('idle', () => map.resize());
   
-  const input = document.getElementById('searchInput');
-  const results = document.getElementById('searchResults');
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
 
   input.addEventListener('input', () => {
-    const q = input.value.trim();
+    const q = input.value.trim().toLowerCase();
     results.innerHTML = '';
     if (!q) return;
 
-    const hits = allPoints.filter(f =>
+    const matched = allFeatures.filter(f =>
       String(f.properties.no).includes(q) ||
-      (f.properties.name && f.properties.name.includes(q)) ||
-      (f.properties.rename && f.properties.rename.includes(q))
-    ).slice(0, 20); // 上限20件
+      (f.properties.name && f.properties.name.toLowerCase().includes(q))
+    ).slice(0, 50); // 件数制限
 
-    hits.forEach(f => {
+    matched.forEach(f => {
       const div = document.createElement('div');
       div.className = 'search-item';
-      div.innerHTML = `
-        <b>${f.properties.no}</b> ${f.properties.name || ''}
-        ${f.properties.rename ? `<span style="color:#666">→ ${f.properties.rename}</span>` : ''}
-      `;
+      div.textContent = `${f.properties.no} ${f.properties.name || ''}`;
 
       div.onclick = () => {
-        showFeature(f);
+        map.flyTo({
+          center: f.geometry.coordinates,
+          zoom: Math.max(map.getZoom(), 12),
+          speed: 1.2
+        });
+
+        // ポップアップも表示
+        const title =
+          (f.properties.rename && f.properties.rename.trim() !== '')
+            ? `${f.properties.name}<br>→ ${f.properties.rename}`
+            : (f.properties.name || '');
+
+        new maplibregl.Popup({ offset: 12 })
+          .setLngLat(f.geometry.coordinates)
+          .setHTML(`
+            <div>
+              <b>${f.properties.no}</b><br>
+              ${title}<br>
+              ${f.properties.address || ''}
+            </div>
+          `)
+          .addTo(map);
+
         results.innerHTML = '';
+        input.blur();
       };
 
       results.appendChild(div);
