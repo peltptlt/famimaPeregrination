@@ -113,7 +113,7 @@ map.on('load', () => {
 
   let allPoints = [];
 
-  fetch('spots.geojson')
+  fetch('famimaPeregrination.geojson')
   .then(res => res.json())
   .then(json => {
     allPoints = json.features;
@@ -121,7 +121,7 @@ map.on('load', () => {
 
   map.addSource('points', {
     type: 'geojson',
-    data: 'spots.geojson'
+    data: 'famimaPeregrination.geojson'
   });
 
   // 外枠（白）

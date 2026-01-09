@@ -1,7 +1,7 @@
 import csv, json, pathlib
 
 SRC = pathlib.Path("ファミリーマート行脚.csv")
-DST = pathlib.Path("famimaPeregrination\docs\spots.geojson")
+DST = pathlib.Path("famimaPeregrination\\docs\\famimaPeregrination.geojson")
 
 features = []
 
