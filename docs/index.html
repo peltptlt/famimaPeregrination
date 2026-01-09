@@ -39,6 +39,30 @@ html, body, #map { margin:0; height:100%; width:100%; }
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
+#searchResults {
+  background: #ffffff;
+  border-radius: 8px;
+  margin-top: 6px;
+  max-height: 40vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.search-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item:hover {
+  background: #f1f3f4;
+  cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -47,7 +71,9 @@ html, body, #map { margin:0; height:100%; width:100%; }
 
 <div id="searchBox">
   <input id="searchInput" type="text" placeholder="店名で検索">
+  <div id="searchResults"></div>
 </div>
+
 
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 <script>
@@ -79,6 +105,14 @@ map.addControl(
 );
 
 map.on('load', () => {
+
+  let allPoints = [];
+
+  fetch('spots.geojson')
+  .then(res => res.json())
+  .then(json => {
+    allPoints = json.features;
+  });
 
   map.addSource('points', {
     type: 'geojson',
@@ -201,52 +235,35 @@ map.on('load', () => {
   map.once('idle', () => map.resize());
   
   const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
 
-input.addEventListener('keydown', (e) => {
-  if (e.key !== 'Enter') return;
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    results.innerHTML = '';
+    if (!q) return;
 
-  const q = input.value.trim();
-  if (!q) return;
+    const hits = allPoints.filter(f =>
+      String(f.properties.no).includes(q) ||
+      (f.properties.name && f.properties.name.includes(q)) ||
+      (f.properties.rename && f.properties.rename.includes(q))
+    ).slice(0, 20); // 上限20件
 
-  const features = map.querySourceFeatures('points');
+    hits.forEach(f => {
+      const div = document.createElement('div');
+      div.className = 'search-item';
+      div.innerHTML = `
+        <b>${f.properties.no}</b> ${f.properties.name || ''}
+        ${f.properties.rename ? `<span style="color:#666">→ ${f.properties.rename}</span>` : ''}
+      `;
 
-  const hit = features.find(f =>
-    String(f.properties.no) === q ||
-    (f.properties.name && f.properties.name.includes(q)) ||
-    (f.properties.rename && f.properties.rename.includes(q))
-  );
+      div.onclick = () => {
+        showFeature(f);
+        results.innerHTML = '';
+      };
 
-  if (!hit) {
-    alert('見つかりません');
-    return;
-  }
-
-  const title =
-    (hit.properties.rename && hit.properties.rename.trim() !== '')
-      ? `${hit.properties.name}<br>→ ${hit.properties.rename}`
-      : (hit.properties.name || '');
-
-  const html = `
-    <div style="line-height:1.4;">
-      <b>${hit.properties.no}</b><br>
-      ${title}<br>
-      ${hit.properties.address || ''}
-    </div>
-  `;
-
-  map.easeTo({
-    center: hit.geometry.coordinates,
-    zoom: 14
+      results.appendChild(div);
+    });
   });
-
-  new maplibregl.Popup({
-    offset: 12,
-    maxWidth: '90vw'
-  })
-  .setLngLat(hit.geometry.coordinates)
-  .setHTML(html)
-  .addTo(map);
-});
 
 });
 </script>
