@@ -262,7 +262,7 @@ map.on('load', () => {
         // ポップアップも表示
         const title =
           (f.properties.rename && f.properties.rename.trim() !== '')
-            ? `${f.properties.name}<br>→ ${f.properties.rename}`
+            ? `${f.properties.name}<br>${f.properties.rename}`
             : (f.properties.name || '');
 
         new maplibregl.Popup({ offset: 12 })
