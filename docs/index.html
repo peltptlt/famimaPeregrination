@@ -26,8 +26,10 @@ html, body, #map { margin:0; height:100%; width:100%; }
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  width: 60%;
-  max-width: 360px;
+  width: 100%;
+  max-width: none;
+  padding: 0 12px;
+  box-sizing: border-box;
 }
 
 .search-wrapper {
@@ -97,11 +99,9 @@ html, body, #map { margin:0; height:100%; width:100%; }
   -webkit-appearance: none;
 }
 
-
 #clearBtn:hover {
   background: rgba(0, 0, 0, 0.5);
 }
-
 
 #searchInput {
   padding-right: 42px; /* ×の分の余白 */
@@ -146,11 +146,6 @@ const map = new maplibregl.Map({
     }]
   }
 });
-
-map.addControl(
-  new maplibregl.NavigationControl({ visualizePitch: false }),
-  'bottom-right'
-);
 
 map.on('load', () => {
 
