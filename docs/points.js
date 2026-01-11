@@ -6,9 +6,7 @@ map.on('load', () => {
     .then(res => res.json())
     .then(json => {
       allPoints = json.features || [];
-      
-      document.dispatchEvent(new Event('pointsLoaded'));
-      
+
       map.addSource('points', {
         type: 'geojson',
         data: json
