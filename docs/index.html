@@ -13,6 +13,18 @@
 <body>
 <div id="map"></div>
 
+<!-- 一覧ボタン -->
+<button id="listBtn">一覧</button>
+
+<!-- 一覧パネル -->
+<div id="listPanel">
+  <div class="list-header">
+    <span>店舗一覧</span>
+    <button id="listClose">×</button>
+  </div>
+  <div id="listBody"></div>
+</div>
+
 <div id="searchBox">
   <div class="search-wrapper">
     <input id="searchInput" type="text" placeholder="店名で検索">
@@ -26,6 +38,7 @@
 <script src="map.js"></script>
 <script src="points.js"></script>
 <script src="search.js"></script>
+<script src="list.js"></script>
 
 </body>
 </html>
