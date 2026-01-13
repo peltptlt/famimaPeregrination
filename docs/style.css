@@ -32,7 +32,7 @@ html, body, #map {
 
 /* ===== 一覧パネル ===== */
 #listPanel {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 20;
   background: rgba(255,255,255,0.95);
