@@ -3,7 +3,8 @@ const listPanel = document.getElementById('listPanel');
 const listBody = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
 
-// 一覧を作るfunction buildList() {
+// 一覧を作る
+function buildList() {
   listBody.innerHTML = '';
 
   // year ごとにまとめる
@@ -51,7 +52,7 @@ const listClose = document.getElementById('listClose');
       `;
 
       div.onclick = () => {
-        listPanel.style.display = 'none';
+        listPanel.classList.add('hidden');
 
         map.flyTo({
           center: f.geometry.coordinates,
@@ -68,6 +69,7 @@ const listClose = document.getElementById('listClose');
     block.appendChild(items);
     listBody.appendChild(block);
   });
+}
 
 // 一覧を開く
 listBtn.onclick = () => {
