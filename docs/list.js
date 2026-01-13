@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
       byYear[year].push(f);
     });
 
-    Object.keys(byYear).sort().forEach(year => {
+    Object.keys(byYear).sort().forEach((year, index) => {
 
       const block = document.createElement('div');
       block.className = 'year-block';
@@ -35,6 +35,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const items = document.createElement('div');
       items.className = 'year-items';
+
+      if (index === 0) {
+        items.classList.add('open');
+      }
+
+      header.onclick = () => {
+        items.classList.toggle('open');
+      };
 
       header.onclick = () => {
         items.classList.toggle('open');

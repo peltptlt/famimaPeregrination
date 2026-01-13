@@ -75,11 +75,11 @@ html, body, #map {
 }
 
 .year-header {
-  padding: 10px;
-  background: #f1f3f4;
-  font-weight: bold;
-  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
+
 
 /* 開閉 */
 .year-items {
