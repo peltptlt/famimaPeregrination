@@ -4,7 +4,6 @@ window.map = new maplibregl.Map({
   zoom: 6,
   style: {
     version: 8,
-    glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
     sources: {
       osm: {
         type: 'raster',
@@ -19,6 +18,5 @@ window.map = new maplibregl.Map({
     }]
   }
 });
-window.addEventListener("load", () => {
-  map.resize();
-});
+
+map.on('load', () => map.resize());
