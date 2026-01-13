@@ -1,12 +1,26 @@
-map.remove();
+console.log("map.js loaded");
 
-const map = new maplibregl.Map({
+window.map = new maplibregl.Map({
   container: 'map',
-  style: 'https://demotiles.maplibre.org/style.json',
-  center: [139.7, 35.6],
-  zoom: 5
+  center: [135.7, 35.0],
+  zoom: 6,
+  style: {
+    version: 8,
+    sources: {
+      osm: {
+        type: 'raster',
+        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+        tileSize: 256
+      }
+    },
+    layers: [{
+      id: 'osm',
+      type: 'raster',
+      source: 'osm'
+    }]
+  }
 });
 
-window.addEventListener("load", () => {
+map.on('load', () => {
   map.resize();
 });
