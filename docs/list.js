@@ -1,6 +1,8 @@
-const listBtn = document.getElementById('listBtn');
+console.log("list.js loaded");
+
+const listBtn   = document.getElementById('listBtn');
 const listPanel = document.getElementById('listPanel');
-const listBody = document.getElementById('listBody');
+const listBody  = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
 
 // 一覧を作る
@@ -14,15 +16,14 @@ function buildList() {
     div.innerHTML = `
       <b>${f.properties.no}</b>
       ${f.properties.name || ''}
-      ${f.properties.rename ? `→ ${f.properties.rename}` : ''}
+      ${f.properties.rename ? ` → ${f.properties.rename}` : ''}
       <div style="font-size:12px;color:#555;">
         ${f.properties.address || ''}
       </div>
     `;
 
-    // クリックで地図へ
     div.onclick = () => {
-      listPanel.style.display = 'none';
+      listPanel.classList.add('hidden');
 
       map.flyTo({
         center: f.geometry.coordinates,
@@ -39,10 +40,10 @@ function buildList() {
 // 一覧を開く
 listBtn.onclick = () => {
   buildList();
-  listPanel.style.display = 'flex';
+  listPanel.classList.remove('hidden');
 };
 
-// 閉じる
+// 一覧を閉じる
 listClose.onclick = () => {
-  listPanel.style.display = 'none';
+  listPanel.classList.add('hidden');
 };
