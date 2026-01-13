@@ -25,12 +25,8 @@ input.addEventListener('input', () => {
         results.innerHTML = '';
         input.blur();
       };
+
       results.appendChild(div);
     });
 });
 
-clearBtn.addEventListener('click', () => {
-  input.value = '';
-  results.innerHTML = '';
-  clearBtn.style.display = 'none';
-});

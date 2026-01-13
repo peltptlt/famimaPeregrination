@@ -4,9 +4,10 @@ map.on('load', () => {
   fetch('famimaPeregrination.geojson')
     .then(res => res.json())
     .then(json => {
-      window.allPoints = json.features || [];
-      console.log("points loaded:", window.allPoints.length);
-
+      allPoints = json.features || [];
+      
+      document.dispatchEvent(new Event('pointsLoaded'));
+      
       map.addSource('points', {
         type: 'geojson',
         data: json
