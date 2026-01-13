@@ -1,5 +1,3 @@
-console.log("map.js loaded");
-
 window.map = new maplibregl.Map({
   container: 'map',
   center: [135.7, 35.0],

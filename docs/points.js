@@ -1,5 +1,3 @@
-console.log("points.js loaded");
-
 window.allPoints = [];
 
 map.on('load', () => {

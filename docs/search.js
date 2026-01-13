@@ -1,5 +1,3 @@
-console.log("search.js loaded");
-
 const input = document.getElementById('searchInput');
 const results = document.getElementById('searchResults');
 const clearBtn = document.getElementById('clearBtn');
