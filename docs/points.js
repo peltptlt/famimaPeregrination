@@ -1,22 +1,19 @@
 console.log("points.js loaded");
 
-let allPoints = [];
+window.allPoints = [];
 
 map.on('load', () => {
-
   fetch('famimaPeregrination.geojson')
     .then(res => res.json())
     .then(json => {
       window.allPoints = json.features || [];
-      console.log("points loaded:", allPoints.length);
-      allPoints = json.features || [];
+      console.log("points loaded:", window.allPoints.length);
 
       map.addSource('points', {
         type: 'geojson',
         data: json
       });
 
-      // 外枠
       map.addLayer({
         id: 'points-circle-outline',
         type: 'circle',
@@ -27,7 +24,6 @@ map.on('load', () => {
         }
       });
 
-      // 中身
       map.addLayer({
         id: 'points-circle-inner',
         type: 'circle',
@@ -38,7 +34,6 @@ map.on('load', () => {
         }
       });
 
-      // 番号
       map.addLayer({
         id: 'points-number',
         type: 'symbol',
@@ -57,7 +52,6 @@ map.on('load', () => {
         }
       });
 
-      // ラベル
       map.addLayer({
         id: 'points-label',
         type: 'symbol',
@@ -78,6 +72,11 @@ map.on('load', () => {
           'text-halo-width': 2
         }
       });
+
+      // クリック系はここ！
+      map.on('click', 'points-number', e => showPopup(e.features[0]));
+      map.on('mouseenter', 'points-number', () => map.getCanvas().style.cursor = 'pointer');
+      map.on('mouseleave', 'points-number', () => map.getCanvas().style.cursor = '');
     });
 });
 
@@ -97,8 +96,3 @@ window.showPopup = function(feature) {
     `)
     .addTo(map);
 };
-
-// クリック
-map.on('click', 'points-number', e => showPopup(e.features[0]));
-map.on('mouseenter', 'points-number', () => map.getCanvas().style.cursor = 'pointer');
-map.on('mouseleave', 'points-number', () => map.getCanvas().style.cursor = '');
