@@ -1,11 +1,10 @@
-console.log("map.js loaded");
-
 window.map = new maplibregl.Map({
   container: 'map',
   center: [135.7, 35.0],
   zoom: 6,
   style: {
     version: 8,
+    glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
     sources: {
       osm: {
         type: 'raster',
@@ -20,7 +19,6 @@ window.map = new maplibregl.Map({
     }]
   }
 });
-
-map.on('load', () => {
+window.addEventListener("load", () => {
   map.resize();
 });
