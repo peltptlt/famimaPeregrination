@@ -44,3 +44,7 @@ html, body, #map {
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
+#map {
+  position: fixed;
+  inset: 0;
+}
