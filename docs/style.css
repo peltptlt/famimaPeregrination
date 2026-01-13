@@ -19,64 +19,6 @@ html, body, #map {
   font-size: 18px;
 }
 
-/* 一覧ボタン */
-#listBtn {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 10;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-}
-
-/* 一覧パネル */
-#listPanel {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  background: rgba(255,255,255,0.95);
-  display: none;
-  flex-direction: column;
-}
-
-/* ヘッダ */
-.list-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-}
-
-#listClose {
-  border: none;
-  background: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-/* 一覧本体 */
-#listBody {
-  flex: 1;
-  overflow-y: auto;
-}
-
-.list-item {
-  padding: 10px 12px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
-
-.list-item:hover {
-  background: #f1f3f4;
-}
-
 /* search */
 #searchBox {
   position: absolute;

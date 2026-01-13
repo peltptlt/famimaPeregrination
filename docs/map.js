@@ -19,3 +19,6 @@ window.map = new maplibregl.Map({
     }]
   }
 });
+window.addEventListener("load", () => {
+  map.resize();
+});
