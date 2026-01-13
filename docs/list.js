@@ -1,5 +1,3 @@
-console.log("list.js loaded");
-
 const listBtn   = document.getElementById('listBtn');
 const listPanel = document.getElementById('listPanel');
 const listBody  = document.getElementById('listBody');
