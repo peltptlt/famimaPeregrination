@@ -22,7 +22,8 @@ with SRC.open(encoding="cp932", newline="") as f:
                 "no": r["no"],
                 "name": r["name"],
                 "rename": r.get("rename", ""),
-                "address": r.get("address", "")
+                "address": r.get("address", ""),
+                "year": r["year"]
             }
         })
 
