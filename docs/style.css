@@ -1,3 +1,7 @@
+body {
+  display: block !important;
+}
+
 html, body, #map {
   margin: 0;
   height: 100%;
