@@ -21,6 +21,14 @@
   border-bottom: 1px solid #ddd;
 }
 
+#listClose {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* 一覧本体 */
 #listBody {
   flex: 1;
   overflow-y: auto;

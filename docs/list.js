@@ -16,14 +16,15 @@ function buildList() {
     div.innerHTML = `
       <b>${f.properties.no}</b>
       ${f.properties.name || ''}
-      ${f.properties.rename ? ` → ${f.properties.rename}` : ''}
+      ${f.properties.rename ? `→ ${f.properties.rename}` : ''}
       <div style="font-size:12px;color:#555;">
         ${f.properties.address || ''}
       </div>
     `;
 
+    // クリックで地図へ
     div.onclick = () => {
-      listPanel.classList.add('hidden');
+      listPanel.style.display = 'none';
 
       map.flyTo({
         center: f.geometry.coordinates,
@@ -40,10 +41,10 @@ function buildList() {
 // 一覧を開く
 listBtn.onclick = () => {
   buildList();
-  listPanel.classList.remove('hidden');
+  listPanel.style.display = 'flex';
 };
 
 // 一覧を閉じる
 listClose.onclick = () => {
-  listPanel.classList.add('hidden');
+  listPanel.style.display = 'none';
 };
