@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ファミマ行脚</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="map"></div>
+
+<button id="listBtn">一覧</button>
+
+<div id="listPanel" style="display:none">
+  <div class="list-header">
+    <span>店舗一覧</span>
+    <button id="listClose">×</button>
+  </div>
+  <div id="listBody"></div>
+</div>
+
+<div id="searchBox">
+  <div class="search-wrapper">
+    <input id="searchInput" type="text" placeholder="店名で検索">
+    <button id="clearBtn" type="button">×</button>
+  </div>
+  <div id="searchResults"></div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="map.js"></script>
+<script src="points.js"></script>
+<script src="search.js"></script>
+<script src="list.js"></script>
+</body>
+</html>
