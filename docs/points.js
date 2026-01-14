@@ -37,6 +37,7 @@ map.on('load', () => {
         id: 'points-number',
         type: 'symbol',
         source: 'points',
+        minzoom: 7,
         layout: {
           'text-field': ['to-string', ['get', 'no']],
           'text-size': ['interpolate', ['linear'], ['zoom'], 5, 11, 10, 13, 15, 15],
