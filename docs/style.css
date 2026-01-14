@@ -1,3 +1,4 @@
+/* base */
 body {
   display: block !important;
 }
@@ -73,7 +74,57 @@ html, body, #map {
   border-bottom: 1px solid #eee;
   font-size: 14px;
 }
+
 .search-item:hover {
   background: #f1f3f4;
   cursor: pointer;
+}
+
+/* list button */
+#listBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20; /* search より上 */
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: #1e8e3e;
+  color: #fff;
+}
+
+/* list panel */
+#listPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  max-width: 360px;
+  height: 100%;
+  background: #fff;
+  z-index: 30; /* 全部より上 */
+  box-shadow: -4px 0 12px rgba(0,0,0,.25);
+
+  transform: translateX(100%);
+  transition: transform .25s ease;
+}
+
+/* 開いた状態 */
+#listPanel.open {
+  transform: translateX(0);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+#listBody {
+  overflow-y: auto;
+  height: calc(100% - 48px);
 }
