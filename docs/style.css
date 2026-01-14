@@ -123,3 +123,10 @@ html, body, #map {
   overflow-y: auto;
   height: calc(100% - 48px);
 }
+
+#listClose {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
