@@ -55,3 +55,9 @@ document.addEventListener('keydown', (e) => {
     input.blur();
   }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  input.value = '';
+  results.innerHTML = '';
+  clearBtn.style.display = 'none';
+});
