@@ -12,7 +12,7 @@ function buildList() {
     div.innerHTML = `
       <b>${f.properties.no}</b>
       ${f.properties.name || ''}
-      ${feature.properties.name}<br>${feature.properties.rename}
+      ${f.properties.rename ? `<br> ${f.properties.rename}` : ''}
     `;
 
     div.onclick = () => {
