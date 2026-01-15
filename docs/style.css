@@ -143,8 +143,8 @@ html, body, #map {
 }
 
 #listBody {
+  flex: 1;
   overflow-y: auto;
-  height: calc(100% - 48px);
 }
 
 #listClose {
