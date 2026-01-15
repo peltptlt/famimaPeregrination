@@ -56,10 +56,6 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
 });
 
 listBtn.onclick = () => {
-  currentYear = 'all';
-  document.querySelectorAll('.year-tabs button')
-    .forEach(b => b.classList.toggle('active', b.dataset.year === 'all'));
-
   buildList();
   listPanel.classList.add('open');
 };
