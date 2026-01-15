@@ -113,15 +113,16 @@ html, body, #map {
 /* list panel */
 #listPanel {
   position: absolute;
-  inset: 0;
-  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 85%;
+  max-width: 360px;
+  height: 100%;
   background: rgba(255,255,255,0.95);
+  z-index: 20;
 
-  display: flex;
-  flex-direction: column;
-
-  transform: translateX(100%);
-  transition: transform .25s ease;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
 }
 
 /* 開いた状態 */
