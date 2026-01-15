@@ -169,3 +169,26 @@ html, body, #map {
   font-size: 12px;
   color: #666;
 }
+
+.year-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.year-tabs button {
+  flex: 1;
+  padding: 6px 0;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.year-tabs button.active {
+  background: #1e8e3e;
+  color: #fff;
+  border-color: #1e8e3e;
+}
