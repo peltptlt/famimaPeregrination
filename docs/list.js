@@ -23,7 +23,7 @@ function buildList() {
       </div>
 
       ${f.properties.rename ? `
-        <div class="list-rename"> ${f.properties.rename}</div>
+        <div class="list-rename">${f.properties.rename}</div>
       ` : ''}
 
       ${f.properties.address ? `
