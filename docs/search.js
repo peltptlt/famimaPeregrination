@@ -46,3 +46,12 @@ clearBtn.onclick = () => {
   clearBtn.style.display = 'none';
   input.focus();
 };
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    input.value = '';
+    results.innerHTML = '';
+    clearBtn.style.display = 'none';
+    input.blur();
+  }
+});
