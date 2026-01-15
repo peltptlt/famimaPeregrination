@@ -2,7 +2,6 @@ const listBtn   = document.getElementById('listBtn');
 const listPanel = document.getElementById('listPanel');
 const listBody  = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
-let currentYear = 'all';
 
 function buildList() {
   listBody.innerHTML = '';
@@ -38,20 +37,21 @@ function buildList() {
 
     listBody.appendChild(div);
   });
+  
+  document.querySelectorAll('.year-tabs button').forEach(btn => {
+    btn.onclick = () => {
+      currentYear = btn.dataset.year;
+
+      document.querySelectorAll('.year-tabs button')
+        .forEach(b => b.classList.remove('active'));
+
+      btn.classList.add('active');
+
+      buildList();
+    };
+  });
 }
 
-document.querySelectorAll('.year-tabs button').forEach(btn => {
-  btn.onclick = () => {
-    currentYear = btn.dataset.year;
-
-    document.querySelectorAll('.year-tabs button')
-      .forEach(b => b.classList.remove('active'));
-
-    btn.classList.add('active');
-
-    buildList();
-  };
-});
 
 listBtn.onclick = () => {
   currentYear = 'all';
