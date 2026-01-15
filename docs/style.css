@@ -116,11 +116,15 @@ html, body, #map {
   top: 0;
   left: 0;
   height: 100%;
-  background: rgba(255,255,255,0.95);
+  width: 88vw;
+  max-width: 420px;
+  background: rgba(255,255,255,0.96);
   z-index: 20;
 
   transform: translateX(-100%);
-  transition: transform 0.25s ease;
+  transition: transform .25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 開いた状態 */
