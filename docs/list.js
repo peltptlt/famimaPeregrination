@@ -9,10 +9,24 @@ function buildList() {
   allPoints.forEach(f => {
     const div = document.createElement('div');
     div.className = 'list-item';
+
     div.innerHTML = `
-      <b>${f.properties.no}</b>
-      ${f.properties.name || ''}
-      ${f.properties.rename ? `<br> ${f.properties.rename}` : ''}
+      <div class="list-title">
+        <span class="list-no">${f.properties.no}</span>
+        <span class="list-name">${f.properties.name || ''}</span>
+      </div>
+
+      ${
+        f.properties.rename
+          ? `<div class="list-rename">${f.properties.rename}</div>`
+          : ''
+      }
+
+      ${
+        f.properties.address
+          ? `<div class="list-address">${f.properties.address}</div>`
+          : ''
+      }
     `;
 
     div.onclick = () => {

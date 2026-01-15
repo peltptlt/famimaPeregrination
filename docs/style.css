@@ -130,3 +130,42 @@ html, body, #map {
   font-size: 22px;
   cursor: pointer;
 }
+
+.list-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:hover {
+  background: #f1f3f4;
+  cursor: pointer;
+}
+
+.list-title {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 14px;
+}
+
+.list-no {
+  font-weight: bold;
+  min-width: 2.5em;
+}
+
+.list-name {
+  flex: 1;
+}
+
+.list-rename {
+  margin-left: 2.5em;
+  font-size: 13px;
+  color: #1e8e3e;
+}
+
+.list-address {
+  margin-left: 2.5em;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #666;
+}
