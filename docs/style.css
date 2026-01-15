@@ -98,10 +98,12 @@ html, body, #map {
 #listPanel {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,.95);
   z-index: 20;
+  background: rgba(255,255,255,0.95);
+
   display: flex;
   flex-direction: column;
+
   transform: translateX(100%);
   transition: transform .25s ease;
 }
