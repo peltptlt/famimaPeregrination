@@ -80,6 +80,22 @@ html, body, #map {
   cursor: pointer;
 }
 
+.search-title {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-no {
+  font-weight: bold;
+}
+
+.search-rename {
+  color: #666;
+  font-size: 12px;
+}
+
 /* list button */
 #listBtn {
   position: absolute;

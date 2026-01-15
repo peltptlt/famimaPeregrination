@@ -11,13 +11,23 @@ input.addEventListener('input', () => {
   allPoints
     .filter(f =>
       String(f.properties.no).includes(q) ||
-      f.properties.name?.toLowerCase().includes(q)
+      f.properties.name?.toLowerCase().includes(q) ||
+      f.properties.rename?.toLowerCase().includes(q)
     )
     .slice(0, 50)
     .forEach(f => {
       const div = document.createElement('div');
       div.className = 'search-item';
-      div.textContent = `${f.properties.no} ${f.properties.name || ''}`;
+
+      div.innerHTML = `
+        <div class="search-title">
+          <span class="search-no">${f.properties.no}</span>
+          <span class="search-name">${f.properties.name || ''}</span>
+          ${f.properties.rename ? `
+            <span class="search-rename">→ ${f.properties.rename}</span>
+          ` : ''}
+        </div>
+      `;
 
       div.onclick = () => {
         map.flyTo({ center: f.geometry.coordinates, zoom: 12 });
@@ -30,3 +40,9 @@ input.addEventListener('input', () => {
     });
 });
 
+clearBtn.onclick = () => {
+  input.value = '';
+  results.innerHTML = '';
+  clearBtn.style.display = 'none';
+  input.focus();
+};
