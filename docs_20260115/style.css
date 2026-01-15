@@ -80,6 +80,22 @@ html, body, #map {
   cursor: pointer;
 }
 
+.search-title {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-no {
+  font-weight: bold;
+}
+
+.search-rename {
+  color: #666;
+  font-size: 12px;
+}
+
 /* list button */
 #listBtn {
   position: absolute;
@@ -97,12 +113,26 @@ html, body, #map {
 /* list panel */
 #listPanel {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  width: 100vw;
+  max-width: 6000px;
+
+  background: rgba(255,255,255,0.96);
   z-index: 20;
-  background: rgba(255,255,255,0.95);
-  display: none;
+
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  display: flex;
   flex-direction: column;
 }
+
+#listPanel.open {
+  transform: translateX(0);
+}
+
 
 /* 開いた状態 */
 #listPanel.open {
@@ -120,8 +150,8 @@ html, body, #map {
 }
 
 #listBody {
+  flex: 1;
   overflow-y: auto;
-  height: calc(100% - 48px);
 }
 
 #listClose {
@@ -168,4 +198,27 @@ html, body, #map {
   margin-top: 2px;
   font-size: 12px;
   color: #666;
+}
+
+.year-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.year-tabs button {
+  flex: 1;
+  padding: 6px 0;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.year-tabs button.active {
+  background: #1e8e3e;
+  color: #fff;
+  border-color: #1e8e3e;
 }
