@@ -57,7 +57,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
+  const input    = document.getElementById('searchInput');
+  const results  = document.getElementById('searchResults');
+  const clearBtn = document.getElementById('clearBtn');
+
+  if (!input) return;
+
   input.value = '';
-  results.innerHTML = '';
-  clearBtn.style.display = 'none';
+  if (results) results.innerHTML = '';
+  if (clearBtn) clearBtn.style.display = 'none';
 });
+
