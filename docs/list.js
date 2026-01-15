@@ -2,6 +2,7 @@ const listBtn   = document.getElementById('listBtn');
 const listPanel = document.getElementById('listPanel');
 const listBody  = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
+let currentYear = 'all';
 
 function buildList() {
   listBody.innerHTML = '';
