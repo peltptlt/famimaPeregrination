@@ -116,8 +116,10 @@ html, body, #map {
   top: 0;
   left: 0;
   height: 100%;
-  width: 88vw;
-  max-width: 420px;
+
+  width: 95vw;
+  max-width: 520px;
+
   background: rgba(255,255,255,0.96);
   z-index: 20;
 
@@ -126,6 +128,11 @@ html, body, #map {
   display: flex;
   flex-direction: column;
 }
+
+#listPanel.open {
+  transform: translateX(0);
+}
+
 
 /* 開いた状態 */
 #listPanel.open {
