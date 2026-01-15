@@ -48,7 +48,7 @@ clearBtn.onclick = () => {
 };
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
+  if (e.key === 'Escape' && input.value) {
     input.value = '';
     results.innerHTML = '';
     clearBtn.style.display = 'none';
