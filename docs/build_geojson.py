@@ -31,7 +31,7 @@ geojson = {
     "features": features
 }
 
-with open("C:\Users\ろへ\ドキュメント\document\ファミリーマート行脚\famimaPeregrination\docs\famimaPeregrination.geojson", "w", encoding="utf-8") as f:
+with open("famimaPeregrination/docs/famimaPeregrination.geojson", "w", encoding="utf-8") as f:
     json.dump(geojson, f, ensure_ascii=False, indent=2)
 
 print(f"変換完了: {len(features)} 件")
