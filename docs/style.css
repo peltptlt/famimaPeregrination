@@ -224,6 +224,7 @@ html, body, #map {
 }
 
 #prefFilter {
+  display: block;
   width: calc(100% - 16px);
   margin: 8px;
   padding: 8px;
@@ -231,5 +232,5 @@ html, body, #map {
   border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
-  z-index: 30; /* listPanel より前に出す */
+  z-index: 30;
 }
