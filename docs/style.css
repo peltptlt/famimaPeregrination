@@ -224,6 +224,12 @@ html, body, #map {
 }
 
 #prefFilter {
-  margin: 8px;
   width: calc(100% - 16px);
+  margin: 8px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  z-index: 30; /* listPanel より前に出す */
 }
