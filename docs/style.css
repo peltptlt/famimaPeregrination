@@ -224,12 +224,6 @@ html, body, #map {
 }
 
 #prefFilter {
-  position: absolute;
-  top: 60px;
-  left: 12px;
-  z-index: 9999;
-  background: #fff;
-  padding: 6px;
-  border-radius: 6px;
-  font-size: 14px;
+  margin: 8px;
+  width: calc(100% - 16px);
 }
