@@ -83,6 +83,7 @@ listClose.onclick = () => {
 
 // 都道府県セレクト変更イベント
 document.getElementById('prefFilter').onchange = e => {
-  currentPref = e.target.value;
+  currentPref = e.target.value === '' ? 'all' : e.target.value;
   buildList();
 };
+
