@@ -10,6 +10,7 @@ function extractPref(address) {
   const m = address.match(/(北海道|.+?県|.+?府|.+?都)/);
   return m ? m[1] : '';
 }
+
 function buildList() {
   listBody.innerHTML = '';
 
