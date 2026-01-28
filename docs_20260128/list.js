@@ -1,32 +1,16 @@
 let currentYear = 'all';
-let currentPref = 'all';
 
 const listBtn   = document.getElementById('listBtn');
 const listPanel = document.getElementById('listPanel');
 const listBody  = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
 
-function extractPref(address) {
-  const m = address.match(/(北海道|.+?県|.+?府|.+?都)/);
-  return m ? m[1] : '';
-}
 function buildList() {
   listBody.innerHTML = '';
 
-  let filtered = allPoints;
-
-  // 年フィルター
-  if (currentYear !== 'all') {
-    filtered = filtered.filter(f => String(f.properties.year) === currentYear);
-  }
-
-  // 都道府県フィルター
-  if (currentPref !== 'all') {
-    filtered = filtered.filter(f => {
-      const addr = f.properties.address || '';
-      return extractPref(addr) === currentPref;
-    });
-  }
+  const filtered = currentYear === 'all'
+    ? allPoints
+    : allPoints.filter(f => String(f.properties.year) === currentYear);
 
   filtered.forEach(f => {
     const div = document.createElement('div');
@@ -39,7 +23,7 @@ function buildList() {
       </div>
 
       ${f.properties.rename ? `
-        <div class="list-rename">${f.properties.rename}</div>
+        <div class="list-rename">  ${f.properties.rename}</div>
       ` : ''}
 
       ${f.properties.address ? `
@@ -55,8 +39,8 @@ function buildList() {
 
     listBody.appendChild(div);
   });
-}
 
+}
 
 document.querySelectorAll('.year-tabs button').forEach(btn => {
   btn.onclick = () => {
@@ -78,10 +62,4 @@ listBtn.onclick = () => {
 
 listClose.onclick = () => {
   listPanel.classList.remove('open');
-};
-
-// 都道府県セレクト変更イベント
-document.getElementById('prefFilter').onchange = e => {
-  currentPref = e.target.value;
-  buildList();
 };
