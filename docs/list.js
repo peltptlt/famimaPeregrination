@@ -6,10 +6,12 @@ const listPanel = document.getElementById('listPanel');
 const listBody  = document.getElementById('listBody');
 const listClose = document.getElementById('listClose');
 
+// 都道府県正規表現
 function extractPref(address) {
-  const m = address.match(/(北海道|.+?県|.+?府|.+?都)/);
+  const m = address.match(/(北海道|[^\s、]+?[都道府県])/);
   return m ? m[1] : '';
 }
+
 
 function buildList() {
   listBody.innerHTML = '';
