@@ -228,6 +228,8 @@ html, body, #map {
   gap: 8px;
   padding: 0 8px;
   margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #prefFilter,
