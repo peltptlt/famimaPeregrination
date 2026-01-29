@@ -223,14 +223,19 @@ html, body, #map {
   border-color: #1e8e3e;
 }
 
-#prefFilter {
-  display: block;
-  width: calc(100% - 16px);
-  margin: 8px;
+.filter-row {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px;
+  margin-bottom: 8px;
+}
+
+#prefFilter,
+#cityFilter {
+  flex: 1;
   padding: 8px;
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
-  z-index: 30;
 }

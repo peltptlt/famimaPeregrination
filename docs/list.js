@@ -1,10 +1,11 @@
 let currentYear = 'all';
 let currentPref = 'all';
 
-const listBtn   = document.getElementById('listBtn');
-const listPanel = document.getElementById('listPanel');
-const listBody  = document.getElementById('listBody');
-const listClose = document.getElementById('listClose');
+const listBtn    = document.getElementById('listBtn');
+const listPanel  = document.getElementById('listPanel');
+const listBody   = document.getElementById('listBody');
+const listClose  = document.getElementById('listClose');
+const citySelect = document.getElementById('cityFilter');
 
 // 都道府県正規表現
 function extractPref(address) {
@@ -12,6 +13,11 @@ function extractPref(address) {
   return m ? m[1] : '';
 }
 
+// 市区町村正規表現
+function extractCity(address) {
+  const m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?(市|区|町|村))/);
+  return m ? m[1] : '';
+}
 
 function buildList() {
   listBody.innerHTML = '';
@@ -60,7 +66,6 @@ function buildList() {
   });
 }
 
-
 document.querySelectorAll('.year-tabs button').forEach(btn => {
   btn.onclick = () => {
     currentYear = btn.dataset.year;
@@ -87,5 +92,36 @@ listClose.onclick = () => {
 document.getElementById('prefFilter').onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
   buildList();
+
+  // 市区町村フィルターをリセット
+  citySelect.innerHTML = `<option value="">市区町村</option>`;
+  citySelect.disabled = true;
+
+  if (currentPref !== 'all') {
+    const cities = new Set();
+
+    allPoints.forEach(f => {
+      const addr = f.properties.address || '';
+      if (extractPref(addr) === currentPref) {
+        const city = extractCity(addr);
+        if (city) cities.add(city);
+      }
+    });
+
+    const sorted = [...cities].sort((a, b) => a.localeCompare(b, 'ja'));
+
+    sorted.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      citySelect.appendChild(opt);
+    });
+
+    citySelect.disabled = false;
+  }
+  
 };
 
+citySelect.onchange = () => {
+buildList();
+};
