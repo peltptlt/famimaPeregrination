@@ -37,6 +37,14 @@ function buildList() {
     });
   }
 
+  // 市区町村フィルター
+  if (citySelect.value !== '') {
+    filtered = filtered.filter(f => {
+      const addr = f.properties.address || '';
+      return extractCity(addr) === citySelect.value;
+    });
+  }
+
   filtered.forEach(f => {
     const div = document.createElement('div');
     div.className = 'list-item';
