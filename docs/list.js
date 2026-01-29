@@ -19,6 +19,7 @@ function extractCity(address) {
   return m ? m[1] : '';
 }
 
+
 function buildList() {
   listBody.innerHTML = '';
 
@@ -132,5 +133,5 @@ document.getElementById('prefFilter').onchange = e => {
 
 // 市区町村セレクト変更イベント
 citySelect.onchange = () => {
-buildList();
+  buildList();
 };
