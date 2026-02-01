@@ -97529,6 +97529,244 @@
         "address": "日本、〒660-0083 兵庫県尼崎市道意町７丁目１番１０",
         "year": "2026"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7258322,
+          35.6723366
+        ]
+      },
+      "properties": {
+        "no": 5738,
+        "name": "ファミリーマート 青山外苑東通り店",
+        "rename": "",
+        "address": "日本、〒107-0062 東京都港区南青山１丁目２−６",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.724561,
+          35.6725893
+        ]
+      },
+      "properties": {
+        "no": 5739,
+        "name": "ファミリーマート 青山ツインビル店",
+        "rename": "",
+        "address": "日本、〒107-0062 東京都港区南青山１丁目１−１ 1F",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7233714,
+          35.6730407
+        ]
+      },
+      "properties": {
+        "no": 5740,
+        "name": "ファミマ!! ファミマ青山ビル店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山１丁目２−３",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7238282,
+          35.6732041
+        ]
+      },
+      "properties": {
+        "no": 5741,
+        "name": "ファミリーマート 青山一丁目駅店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山１丁目２−４",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7220009,
+          35.6722935
+        ]
+      },
+      "properties": {
+        "no": 5742,
+        "name": "ファミリーマート 北青山一丁目店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山１丁目４−１ ランジェ青山",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7188224,
+          35.6711636
+        ]
+      },
+      "properties": {
+        "no": 5743,
+        "name": "ファミリーマート メトロ外苑前店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山２丁目５−８",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7167912,
+          35.6697134
+        ]
+      },
+      "properties": {
+        "no": 5744,
+        "name": "ファミリーマート 外苑南青山二丁目店",
+        "rename": "",
+        "address": "日本、〒107-0062 東京都港区南青山２丁目２７−２８−５０３",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7166056,
+          35.6706852
+        ]
+      },
+      "properties": {
+        "no": 5745,
+        "name": "ファミリーマート 北青山二丁目店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山２丁目１２−１３",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7170714,
+          35.6716042
+        ]
+      },
+      "properties": {
+        "no": 5746,
+        "name": "ファミリーマート 神宮スタジアム通り店",
+        "rename": "",
+        "address": "日本、〒107-0061 東京都港区北青山２丁目７−２６ メゾン青山５０３",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.698848,
+          35.6599153
+        ]
+      },
+      "properties": {
+        "no": 5747,
+        "name": "ファミリーマート 渋谷１０９前店",
+        "rename": "",
+        "address": "日本、〒150-0042 東京都渋谷区宇田川町２６−４ 1F",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6990408,
+          35.6603455
+        ]
+      },
+      "properties": {
+        "no": 5748,
+        "name": "ファミリーマート スバル渋谷センター街店",
+        "rename": "",
+        "address": "日本、〒150-0042 東京都渋谷区宇田川町２５−４",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7647839,
+          35.6699198
+        ]
+      },
+      "properties": {
+        "no": 5749,
+        "name": "ファミリーマート 銀座みゆき通り店",
+        "rename": "",
+        "address": "日本、〒104-0061 東京都中央区銀座５丁目９−１３",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7678487,
+          35.6708563
+        ]
+      },
+      "properties": {
+        "no": 5750,
+        "name": "ファミリーマート 銀座松屋通り店",
+        "rename": "",
+        "address": "日本、〒104-0061 東京都中央区銀座３丁目１０−９",
+        "year": "2026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7500034,
+          35.6486172
+        ]
+      },
+      "properties": {
+        "no": 5751,
+        "name": "ファミリーマート 芝四丁目店",
+        "rename": "",
+        "address": "日本、〒108-0014 東京都港区芝４丁目３−１１",
+        "year": "2026"
+      }
     }
   ]
 }
