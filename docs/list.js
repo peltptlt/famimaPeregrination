@@ -15,9 +15,23 @@ function extractPref(address) {
 
 // 市区町村正規表現
 function extractCity(address) {
-  const m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?(市|区|町|村))/);
+  // 1. 郡 + 町/村
+  let m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?郡[^\s、]+?(町|村))/);
+  if (m) return m[1];
+
+  // 2. 市
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市)/);
+  if (m) return m[1];
+
+  // 3. 区
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?区)/);
+  if (m) return m[1];
+
+  // 4. 町/村
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?(町|村))/);
   return m ? m[1] : '';
 }
+
 
 
 function buildList() {
