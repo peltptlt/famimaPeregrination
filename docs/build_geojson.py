@@ -21,7 +21,8 @@ for _, row in df.iterrows():
             "name": str(row["name"]) if not pd.isna(row["name"]) else "",
             "rename": str(row["rename"]) if not pd.isna(row["rename"]) else "",
             "address": str(row["address"]) if not pd.isna(row["address"]) else "",
-            "year": str(int(row["year"])) if not pd.isna(row["year"]) else ""
+            "year": str(int(row["year"])) if not pd.isna(row["year"]) else "",
+            "date": str(int(row["date"])) if not pd.isna(row["date"]) else ""
         }
     }
     features.append(feature)
