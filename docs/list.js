@@ -63,6 +63,10 @@ function buildList() {
       ${f.properties.address ? `
         <div class="list-address">${f.properties.address}</div>
       ` : ''}
+
+      ${f.properties.date ? `
+        <div class="list-date">${f.properties.date}</div>
+      ` : ''}
     `;
 
     div.onclick = () => {
