@@ -32,8 +32,6 @@ function extractCity(address) {
   return m ? m[1] : '';
 }
 
-
-
 function buildList() {
   listBody.innerHTML = '';
 
