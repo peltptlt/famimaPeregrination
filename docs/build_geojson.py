@@ -1,5 +1,14 @@
 import pandas as pd
 import json
+import math
+
+# ブランク対策
+def safe_str(v):
+    if v is None:
+        return ""
+    if isinstance(v, float) and math.isnan(v):
+        return ""
+    return str(v)
 
 # Excel読み込み
 df = pd.read_excel("ファミリーマート行脚.xlsx", sheet_name="ファミマ行脚")
@@ -48,9 +57,9 @@ for _, row in df.iterrows():
         },
         "properties": {
             "no": int(row["no"]),
-            "name": row.get("name", "") or "",
-            "rename": row.get("rename", "") or "",
-            "address": row.get("address", "") or "",
+            "name": safe_str(row.get("name")),
+            "rename": safe_str(row.get("rename")),
+            "address": safe_str(row.get("address")),
             "year": year_str,
             "date": date_str
         }
