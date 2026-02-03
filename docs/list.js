@@ -19,12 +19,12 @@ function extractCity(address) {
   let m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?郡[^\s、]+?(町|村))/);
   if (m) return m[1];
 
-  // 2. 市
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市)/);
+  // 2. 政令市の「市 + 区」
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市[^\s、]+?区)/);
   if (m) return m[1];
 
-  // 3. 区
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?区)/);
+  // 3. 市
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市)/);
   if (m) return m[1];
 
   // 4. 町/村
