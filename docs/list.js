@@ -116,7 +116,6 @@ listClose.onclick = () => {
 // 都道府県セレクト変更イベント
 document.getElementById('prefFilter').onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
-  buildList();
 
   // 市区町村フィルターをリセット
   citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
@@ -145,10 +144,6 @@ document.getElementById('prefFilter').onchange = e => {
 
     citySelect.disabled = false;
   }
-  
-};
 
-// 市区町村セレクト変更イベント
-citySelect.onchange = () => {
   buildList();
 };
