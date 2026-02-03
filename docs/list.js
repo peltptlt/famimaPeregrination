@@ -119,7 +119,7 @@ document.getElementById('prefFilter').onchange = e => {
   buildList();
 
   // 市区町村フィルターをリセット
-  citySelect.innerHTML = `<option value="">市区町村</option>`;
+  citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
   citySelect.disabled = true;
 
   if (currentPref !== 'all') {
