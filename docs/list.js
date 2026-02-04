@@ -132,7 +132,7 @@ document.getElementById('prefFilter').onchange = e => {
 
   // 市区町村フィルターをリセット
   citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
-  citySelect.value = "";
+  //citySelect.value = "";
   citySelect.disabled = true;
 
   if (currentPref !== 'all') {
