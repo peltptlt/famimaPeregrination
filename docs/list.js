@@ -28,21 +28,22 @@ function extractCity(address) {
   address = normalizeAddress(address);
 
   // 1. 郡 + 町/村
-  let m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?郡[^\s、]+?(町|村))/);
+  let m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?郡[^\s、]+?(町|村))/);
   if (m) return m[1];
 
   // 2. 政令市の「市 + 区」
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市[^\s、]+?区)/);
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?市[^\s、]+?区)/);
   if (m) return m[1];
 
   // 3. 市
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?市)/);
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?市)/);
   if (m) return m[1];
 
   // 4. 町/村
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?(町|村))/);
+  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?(町|村))/);
   return m ? m[1] : '';
 }
+
 
 function buildList() {
   listBody.innerHTML = '';
