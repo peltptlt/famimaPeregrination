@@ -7,6 +7,15 @@ const listBody   = document.getElementById('listBody');
 const listClose  = document.getElementById('listClose');
 const citySelect = document.getElementById('cityFilter');
 
+// リバースジオコーディング表記から住所表記へ
+function normalizeAddress(address) {
+  if (!address) return "";
+  return address
+    .replace(/^日本、?/, "")        // 「日本、」を削除
+    .replace(/〒\d{3}-?\d{4}/, "")  // 郵便番号を削除
+    .replace(/\s+/g, "");           // 空白削除
+}
+
 // 都道府県正規表現
 function extractPref(address) {
   const m = address.match(/(北海道|[^\s、]+?[都道府県])/);
