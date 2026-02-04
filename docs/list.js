@@ -7,12 +7,6 @@ const listBody   = document.getElementById('listBody');
 const listClose  = document.getElementById('listClose');
 const citySelect = document.getElementById('cityFilter');
 
-// 都道府県正規表現
-function extractPref(address) {
-  const m = address.match(/(北海道|[^\s、]+?[都道府県])/);
-  return m ? m[1] : '';
-}
-
 // リバースジオコーディング表記から住所表記へ
 function normalizeAddress(address) {
   if (!address) return "";
@@ -22,8 +16,17 @@ function normalizeAddress(address) {
     .replace(/\s+/g, "");           // 空白削除
 }
 
+// 都道府県正規表現
+function extractPref(address) {
+  address = normalizeAddress(address);
+  const m = address.match(/(北海道|[^\s、]+?[都道府県])/);
+  return m ? m[1] : '';
+}
+
 // 市区町村正規表現
 function extractCity(address) {
+  address = normalizeAddress(address);
+
   // 1. 郡 + 町/村
   let m = address.match(/(?:北海道|[^\s、]+?[都道府県])\s*([^\s、]+?郡[^\s、]+?(町|村))/);
   if (m) return m[1];
