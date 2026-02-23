@@ -45,7 +45,9 @@ for _, row in df.iterrows():
             "name": safe_str(row.get("name")),
             "rename": safe_str(row.get("rename")),
             "address": safe_str(row.get("address")),
-            "date": date_str   # ← year は廃止
+            "pref": safe_str(row.get("pref")),
+            "city": safe_str(row.get("city")),
+            "date": date_str
         }
     }
 
