@@ -56,6 +56,28 @@ function buildList() {
   });
 }
 
+// 年タブのクリックイベント
+document.querySelectorAll('.year-tabs button').forEach(btn => {
+  btn.onclick = () => {
+    currentYear = btn.dataset.year;
+
+    // 年変更時に pref / city をリセット
+    currentPref = 'all';
+    document.getElementById('prefFilter').value = "";
+
+    citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
+    citySelect.value = "";
+    citySelect.disabled = true;
+
+    // active 切り替え
+    document.querySelectorAll('.year-tabs button')
+      .forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    buildList();
+  };
+});
+
 listBtn.onclick = () => {
   buildList();
   listPanel.classList.add('open');
