@@ -7,44 +7,6 @@ const listBody   = document.getElementById('listBody');
 const listClose  = document.getElementById('listClose');
 const citySelect = document.getElementById('cityFilter');
 
-// リバースジオコーディング表記から住所表記へ
-function normalizeAddress(address) {
-  if (!address) return "";
-  return address
-    .replace(/^日本、?/, "")        // 「日本、」を削除
-    .replace(/〒\d{3}-?\d{4}/, "")  // 郵便番号を削除
-    .replace(/\s+/g, "");           // 空白削除
-}
-
-// 都道府県正規表現
-function extractPref(address) {
-  address = normalizeAddress(address);
-  const m = address.match(/(北海道|[^\s、]+?[都道府県])/);
-  return m ? m[1] : '';
-}
-
-// 市区町村正規表現
-function extractCity(address) {
-  address = normalizeAddress(address);
-
-  // 1. 郡 + 町/村
-  let m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?郡[^\s、]+?(町|村))/);
-  if (m) return m[1];
-
-  // 2. 政令市の「市 + 区」
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?市[^\s、]+?区)/);
-  if (m) return m[1];
-
-  // 3. 市
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?市)/);
-  if (m) return m[1];
-
-  // 4. 町/村
-  m = address.match(/(?:北海道|[^\s、]+?[都道府県])([^\s、]+?(町|村))/);
-  return m ? m[1] : '';
-}
-
-
 function buildList() {
   listBody.innerHTML = '';
 
@@ -60,20 +22,10 @@ if (currentYear !== 'all') {
 }
 
   // 都道府県フィルター
-  if (currentPref !== 'all') {
-    filtered = filtered.filter(f => {
-      const addr = f.properties.address || '';
-      return extractPref(addr) === currentPref;
-    });
-  }
+  filtered = allFeatures.filter(f => f.properties.pref === currentPref);
 
   // 市区町村フィルター
-  if (citySelect.value !== '') {
-    filtered = filtered.filter(f => {
-      const addr = f.properties.address || '';
-      return extractCity(addr) === citySelect.value;
-    });
-  }
+  filtered = filtered.filter(f => f.properties.city === citySelect.value);
 
   filtered.forEach(f => {
     const div = document.createElement('div');
