@@ -2,7 +2,6 @@ import pandas as pd
 import json
 import math
 
-# ブランク対策
 def safe_str(v):
     if v is None:
         return ""
@@ -13,42 +12,28 @@ def safe_str(v):
 # Excel読み込み
 df = pd.read_excel("ファミリーマート行脚.xlsx", sheet_name="ファミマ行脚")
 
+# ★ 文字列の日付を Timestamp に変換
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 features = []
 
 for _, row in df.iterrows():
 
-    # --- 座標の取得（lon / lng 両対応） ---
-    lon = row.get("lon", None)
-    if lon is None or pd.isna(lon):
-        lon = row.get("lng", None)
+    # --- 座標の取得 ---
+    lon = row.get("lon", row.get("lng"))
+    lat = row.get("lat")
 
-    lat = row.get("lat", None)
-
-    # 座標が無い行はスキップ
     if pd.isna(lat) or pd.isna(lon):
         continue
 
     lon = float(lon)
     lat = float(lat)
 
-    # --- 日付処理 ---
-    date_str = ""
-    year_str = ""
+    # --- 日付（分まで） ---
+    # 例: 2017-03-11 10:01
+    date_str = row["date"].strftime("%Y-%m-%d %H:%M")
 
-    if not pd.isna(row["date"]):
-        if isinstance(row["date"], pd.Timestamp):
-            date_str = row["date"].strftime("%Y-%m-%d")
-            year_str = str(row["date"].year)
-        else:
-            date_raw = str(int(row["date"]))
-            date_str = f"{date_raw[:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
-            year_str = date_raw[:4]
-
-    elif not pd.isna(row["year"]):
-        year_str = str(int(row["year"]))
-        date_str = ""
-
-    # --- GeoJSON Feature 作成 ---
+    # --- GeoJSON Feature ---
     feature = {
         "type": "Feature",
         "geometry": {
@@ -60,8 +45,7 @@ for _, row in df.iterrows():
             "name": safe_str(row.get("name")),
             "rename": safe_str(row.get("rename")),
             "address": safe_str(row.get("address")),
-            "year": year_str,
-            "date": date_str
+            "date": date_str   # ← year は廃止
         }
     }
 
