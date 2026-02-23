@@ -12,20 +12,24 @@ function buildList() {
 
   let filtered = allPoints;
 
-// 年フィルター（date から年を抽出）
-if (currentYear !== 'all') {
-  filtered = filtered.filter(f => {
-    const d = f.properties.date || "";
-    const y = d.slice(0, 4);   // "YYYY-MM-DD HH:MM" の先頭4文字が年
-    return y === currentYear;
-  });
-}
+  // 年フィルター
+  if (currentYear !== 'all') {
+    filtered = filtered.filter(f => {
+      const d = f.properties.date || "";
+      const y = d.slice(0, 4);
+      return y === currentYear;
+    });
+  }
 
   // 都道府県フィルター
-  filtered = allFeatures.filter(f => f.properties.pref === currentPref);
+  if (currentPref !== 'all') {
+    filtered = filtered.filter(f => f.properties.pref === currentPref);
+  }
 
   // 市区町村フィルター
-  filtered = filtered.filter(f => f.properties.city === citySelect.value);
+  if (citySelect.value !== "") {
+    filtered = filtered.filter(f => f.properties.city === citySelect.value);
+  }
 
   filtered.forEach(f => {
     const div = document.createElement('div');
@@ -37,17 +41,9 @@ if (currentYear !== 'all') {
         <span class="list-name">${f.properties.name || ''}</span>
       </div>
 
-      ${f.properties.rename ? `
-        <div class="list-rename">${f.properties.rename}</div>
-      ` : ''}
-
-      ${f.properties.address ? `
-        <div class="list-address">${f.properties.address}</div>
-      ` : ''}
-
-      ${f.properties.date ? `
-        <div class="list-date">${f.properties.date}</div>
-      ` : ''}
+      ${f.properties.rename ? `<div class="list-rename">${f.properties.rename}</div>` : ''}
+      ${f.properties.address ? `<div class="list-address">${f.properties.address}</div>` : ''}
+      ${f.properties.date ? `<div class="list-date">${f.properties.date}</div>` : ''}
     `;
 
     div.onclick = () => {
@@ -59,19 +55,6 @@ if (currentYear !== 'all') {
     listBody.appendChild(div);
   });
 }
-
-document.querySelectorAll('.year-tabs button').forEach(btn => {
-  btn.onclick = () => {
-    currentYear = btn.dataset.year;
-
-    document.querySelectorAll('.year-tabs button')
-      .forEach(b => b.classList.remove('active'));
-
-    btn.classList.add('active');
-
-    buildList();
-  };
-});
 
 listBtn.onclick = () => {
   buildList();
@@ -95,10 +78,8 @@ document.getElementById('prefFilter').onchange = e => {
     const cities = new Set();
 
     allPoints.forEach(f => {
-      const addr = f.properties.address || '';
-      if (extractPref(addr) === currentPref) {
-        const city = extractCity(addr);
-        if (city) cities.add(city);
+      if (f.properties.pref === currentPref) {
+        cities.add(f.properties.city);
       }
     });
 
