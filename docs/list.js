@@ -50,10 +50,14 @@ function buildList() {
 
   let filtered = allPoints;
 
-  // 年フィルター
-  if (currentYear !== 'all') {
-    filtered = filtered.filter(f => String(f.properties.year) === currentYear);
-  }
+// 年フィルター（date から年を抽出）
+if (currentYear !== 'all') {
+  filtered = filtered.filter(f => {
+    const d = f.properties.date || "";
+    const y = d.slice(0, 4);   // "YYYY-MM-DD HH:MM" の先頭4文字が年
+    return y === currentYear;
+  });
+}
 
   // 都道府県フィルター
   if (currentPref !== 'all') {
