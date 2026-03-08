@@ -218,8 +218,8 @@ html, body, #map {
 
 .year-tabs button {
   flex: 0 0 auto;
-  padding: 6px 0;
-  font-size: 13px;
+  padding: 8px 14px;
+  font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
