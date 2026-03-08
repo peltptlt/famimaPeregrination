@@ -86,6 +86,7 @@ window.showPopup = function(feature) {
       ? `${feature.properties.name}<br>${feature.properties.rename}`
       : feature.properties.name;
 
+  const address = feature.properties.address || "";
   const date = feature.properties.date || "";
 
   new maplibregl.Popup({ offset: 12, maxWidth: '90vw' })
@@ -93,9 +94,10 @@ window.showPopup = function(feature) {
     .setHTML(`
       <b>${feature.properties.no}</b><br>
       ${title}<br>
-      ${feature.properties.address || ''}<br>
-      ${date}
+      <span style="color:#666;">${address}</span><br>
+      <span style="color:#1e88e5;">${date}</span>
     `)
     .addTo(map);
 };
+
 
