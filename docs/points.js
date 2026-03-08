@@ -91,7 +91,8 @@ window.showPopup = function(feature) {
     .setHTML(`
       <b>${feature.properties.no}</b><br>
       ${title}<br>
-      ${feature.properties.address || ''}
+      ${feature.properties.address || ''}<br>
+      ${date}
     `)
     .addTo(map);
 };
