@@ -19,3 +19,30 @@ window.map = new maplibregl.Map({
     }]
   }
 });
+
+document.getElementById('locateBtn').onclick = () => {
+  if (!navigator.geolocation) {
+    alert("現在地取得がサポートされていません");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude, longitude } = pos.coords;
+
+      map.flyTo({
+        center: [longitude, latitude],
+        zoom: 15,
+        essential: true
+      });
+    },
+    err => {
+      alert("現在地を取得できませんでした");
+      console.error(err);
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000
+    }
+  );
+};
