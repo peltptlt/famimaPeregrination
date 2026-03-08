@@ -209,19 +209,25 @@ html, body, #map {
 
 .year-tabs {
   display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
   gap: 4px;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  padding: 6px 0;
+  -webkit-overflow-scrolling: touch; /* iOSでスムーズスクロール */
 }
 
 .year-tabs button {
-  flex: 1;
+  flex: 0 0 auto;
   padding: 6px 0;
   font-size: 13px;
   border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
   cursor: pointer;
+}
+
+.year-tabs::-webkit-scrollbar {
+  display: none; /* スクロールバー非表示（iOSで綺麗） */
 }
 
 .year-tabs button.active {
