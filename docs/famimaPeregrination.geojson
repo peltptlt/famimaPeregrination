@@ -109839,6 +109839,139 @@
         "city": "長野県長野市",
         "date": "2026-03-21 13:38"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.829953,
+          32.9322749
+        ]
+      },
+      "properties": {
+        "no": 5782,
+        "name": "ファミリーマート 熊本菊池旭志店",
+        "rename": "",
+        "address": "日本、〒869-1206 熊本県菊池市旭志伊坂５５５−１",
+        "pref": "熊本県",
+        "city": "菊池市",
+        "date": "2026-04-04 11:45"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.8129507,
+          32.9774108
+        ]
+      },
+      "properties": {
+        "no": 5783,
+        "name": "ファミリーマート 菊池隈府店",
+        "rename": "",
+        "address": "日本、〒861-1331 熊本県菊池市隈府８４３−１",
+        "pref": "熊本県",
+        "city": "菊池市",
+        "date": "2026-04-04 13:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.061742,
+          33.1220936
+        ]
+      },
+      "properties": {
+        "no": 5784,
+        "name": "ファミリーマート 阿蘇小国店",
+        "rename": "",
+        "address": "日本、〒869-2501 熊本県阿蘇郡小国町宮原１７９９",
+        "pref": "熊本県",
+        "city": "阿蘇郡小国町",
+        "date": "2026-04-04 15:21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1188917,
+          33.2787104
+        ]
+      },
+      "properties": {
+        "no": 5785,
+        "name": "ファミリーマート 玖珠戸畑店",
+        "rename": "",
+        "address": "日本、〒879-4331 大分県玖珠郡玖珠町戸畑６３２−１",
+        "pref": "大分県",
+        "city": "玖珠郡玖珠町",
+        "date": "2026-04-04 18:42"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1663565,
+          33.263356
+        ]
+      },
+      "properties": {
+        "no": 5786,
+        "name": "ファミリーマート 玖珠大隈店",
+        "rename": "",
+        "address": "日本、〒879-4414 大分県玖珠郡玖珠町大隈９８３−１",
+        "pref": "大分県",
+        "city": "玖珠郡玖珠町",
+        "date": "2026-04-04 19:02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1910446,
+          32.6843526
+        ]
+      },
+      "properties": {
+        "no": 5787,
+        "name": "ファミリーマート 五ヶ瀬さくら山店",
+        "rename": "",
+        "address": "日本、〒882-1203 宮崎県西臼杵郡五ヶ瀬町三ヶ所１２９６−１",
+        "pref": "宮崎県",
+        "city": "西臼杵郡五ヶ瀬町",
+        "date": "2026-04-05 14:48"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3041349,
+          32.7137325
+        ]
+      },
+      "properties": {
+        "no": 5788,
+        "name": "ファミリーマート 高千穂武道館前店",
+        "rename": "",
+        "address": "日本、〒882-1101 宮崎県西臼杵郡高千穂町三田井１３５２",
+        "pref": "宮崎県",
+        "city": "西臼杵郡高千穂町",
+        "date": "2026-04-05 17:25"
+      }
     }
   ]
 }
