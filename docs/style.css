@@ -182,12 +182,7 @@ html, body, #map {
   transform: translateX(0);
 }
 
-
 /* 開いた状態 */
-#listPanel.open {
-  transform: translateX(0);
-}
-
 .list-header {
   display: flex;
   justify-content: space-between;
