@@ -165,11 +165,6 @@ html, body, #map {
   border-bottom: 1px solid #ddd;
 }
 
-#listBody {
-  flex: 1;
-  overflow-y: auto;
-}
-
 .close-btn {
   border: none;
   background: none;
@@ -177,6 +172,11 @@ html, body, #map {
   cursor: pointer;
   padding: 6px 10px;
   line-height: 1;
+}
+
+#listBody {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .list-item {
