@@ -134,22 +134,21 @@ html, body, #map {
   background: #fff;
   cursor: pointer;
 }
-
 #aboutPanel {
   position: fixed;
   top: 0;
-  right: -100%;
+  left: -100%;
   width: 80%;
   height: 100%;
   background: #fff;
   z-index: 1000;
-  transition: right 0.3s ease;
+  transition: left 0.3s ease;
   overflow-y: auto;
   padding-bottom: 40px;
 }
 
 #aboutPanel.open {
-  right: 0;
+  left: 0;
 }
 
 .about-header {
