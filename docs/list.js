@@ -6,6 +6,17 @@ const listPanel  = document.getElementById('listPanel');
 const listBody   = document.getElementById('listBody');
 const listClose  = document.getElementById('listClose');
 const citySelect = document.getElementById('cityFilter');
+const aboutBtn   = document.getElementById('aboutBtn');
+const aboutPanel = document.getElementById('aboutPanel');
+const aboutClose = document.getElementById('aboutClose');
+
+aboutBtn.onclick = () => {
+  aboutPanel.classList.add('open');
+};
+
+aboutClose.onclick = () => {
+  aboutPanel.classList.remove('open');
+};
 
 function buildList() {
   listBody.innerHTML = '';

@@ -12,12 +12,13 @@
 <body>
 <div id="map"></div>
 
-<button id="listBtn">一覧</button>
+<button id="listBtn" class="menu-btn">≡</button>
 <button id="locateBtn" class="locate-btn">📍</button>
 
 <div id="listPanel">
   <div class="list-header">
     <span>行脚店舗一覧</span>
+    <button id="aboutBtn" class="about-btn">概要</button>
     <button id="listClose">×</button>
   </div>
 
@@ -101,6 +102,16 @@
   </div>
 
   <div id="listBody"></div>
+</div>
+
+<div id="aboutPanel">
+  <div class="about-header">
+    <span>このサイトについて</span>
+    <button id="aboutClose">×</button>
+  </div>
+  <div id="aboutBody">
+    <!-- ここに長文の説明を書く -->
+  </div>
 </div>
 
 
