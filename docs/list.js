@@ -9,9 +9,15 @@ const citySelect = document.getElementById('cityFilter');
 const aboutBtn   = document.getElementById('aboutBtn');
 const aboutPanel = document.getElementById('aboutPanel');
 const aboutClose = document.getElementById('aboutClose');
+const aboutBody  = document.getElementById('aboutBody');
 
 aboutBtn.onclick = () => {
-  aboutPanel.classList.add('open');
+  fetch('about.html')
+    .then(res => res.text())
+    .then(html => {
+      aboutBody.innerHTML = html;
+      aboutPanel.classList.add('open');
+    });
 };
 
 aboutClose.onclick = () => {
