@@ -198,11 +198,13 @@ html, body, #map {
   overflow-y: auto;
 }
 
-#listClose {
+.close-btn {
   border: none;
   background: none;
   font-size: 22px;
   cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
 }
 
 .list-item {
