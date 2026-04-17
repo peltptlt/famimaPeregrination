@@ -154,14 +154,6 @@ html, body, #map {
   transform: translateX(0);
 }
 
-.about-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-}
-
 /* list panel */
 #listPanel {
   position: absolute;
@@ -183,6 +175,7 @@ html, body, #map {
 }
 
 /* 開いた状態 */
+.about-header,
 .list-header {
   display: flex;
   justify-content: space-between;
