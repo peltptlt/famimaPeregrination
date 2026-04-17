@@ -134,21 +134,24 @@ html, body, #map {
   background: #fff;
   cursor: pointer;
 }
+
 #aboutPanel {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: -100%;
-  width: 80%;
+  left: 0;
   height: 100%;
-  background: #fff;
-  z-index: 1000;
-  transition: left 0.3s ease;
-  overflow-y: auto;
-  padding-bottom: 40px;
+  width: 100vw;
+  max-width: 6000px;
+  background: rgba(255,255,255,0.96);
+  z-index: 20;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 #aboutPanel.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 .about-header {
@@ -165,13 +168,10 @@ html, body, #map {
   top: 0;
   left: 0;
   height: 100%;
-
   width: 100vw;
   max-width: 6000px;
-
   background: rgba(255,255,255,0.96);
   z-index: 20;
-
   transform: translateX(-100%);
   transition: transform .25s ease;
   display: flex;
