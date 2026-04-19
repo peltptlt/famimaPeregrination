@@ -174,7 +174,9 @@ html, body, #map {
 }
 
 #aboutBody {
-  padding: 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
 }
 
 #listBody {
