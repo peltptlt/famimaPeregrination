@@ -98,10 +98,12 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
 listBtn.onclick = () => {
   buildList();
   listPanel.classList.add('open');
+  document.body.classList.add('list-open');
 };
 
 listClose.onclick = () => {
   listPanel.classList.remove('open');
+  document.body.classList.remove('list-open');
 };
 
 // 都道府県セレクト変更イベント

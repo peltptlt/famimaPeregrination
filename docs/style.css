@@ -294,6 +294,7 @@ html, body, #map {
   -webkit-tap-highlight-color: transparent; /* iOSの青枠消し */
 }
 
-#listPanel.open ~ #locateBtn {  /* list開き中は現在地ボタン非表示 */
+body.list-open .locate-btn {  /* list開き中は現在地ボタン非表示 */
   display: none;
 }
+
