@@ -293,3 +293,7 @@ html, body, #map {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   -webkit-tap-highlight-color: transparent; /* iOSの青枠消し */
 }
+
+#listPanel.open ~ #locateBtn {  /* list開き中は現在地ボタン非表示 */
+  display: none;
+}
