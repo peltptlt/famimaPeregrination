@@ -1,30 +1,35 @@
+/* About 全体 */
 #aboutBody {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 20px;
-  line-height: 1.8;
+  padding: 22px 20px;
+  line-height: 1.85;
   font-size: 15px;
-  max-width: none;
+  color: #222;
 }
 
+/* h2：章タイトル（落ち着いたアクセント） */
 #aboutBody h2 {
   font-size: 20px;
-  margin: 24px 0 12px;
+  margin: 28px 0 14px;
   font-weight: 700;
-  border-left: 4px solid #4CAF50;
-  padding-left: 8px;
+  border-left: 4px solid #4CAF50; /* 落ち着いた緑 */
+  padding-left: 10px;
+  color: #1a1a1a;
 }
 
+/* h4：小見出し（控えめに強調） */
 #aboutBody h4 {
   font-size: 16px;
-  margin: 18px 0 8px;
+  margin: 20px 0 10px;
   font-weight: 600;
   color: #333;
 }
 
+/* 箇条書き */
 #aboutBody ul {
-  padding-left: 20px;
-  margin: 8px 0 16px;
+  padding-left: 22px;
+  margin: 6px 0 18px;
 }
 
 #aboutBody li {
@@ -32,17 +37,26 @@
   line-height: 1.7;
 }
 
+/* ルールブロック（読みやすいカード風） */
 .rule-block {
-  margin: 16px 0;
-  padding: 12px 14px;
+  margin: 18px 0;
+  padding: 14px 16px;
   background: #f7f9fa;
   border-left: 3px solid #c5d7e5;
   border-radius: 4px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
+/* 例：の部分（控えめに） */
 .rule-block .example {
   margin-top: 6px;
   color: #555;
   font-size: 14px;
+}
+
+/* hr の見た目を上品に */
+#aboutBody hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 24px 0;
 }
