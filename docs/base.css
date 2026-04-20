@@ -1,0 +1,21 @@
+/* base */
+body {
+  display: block !important;
+}
+
+html, body, #map {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* popup base */
+.maplibregl-popup {
+  font-size: 14px;
+}
+.maplibregl-popup-content {
+  padding: 10px 12px;
+}
+.maplibregl-popup-close-button {
+  font-size: 18px;
+}

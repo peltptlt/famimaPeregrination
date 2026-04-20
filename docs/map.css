@@ -1,0 +1,11 @@
+.maplibregl-popup {
+  font-size: 14px;
+}
+
+.maplibregl-popup-content {
+  padding: 10px 12px;
+}
+
+.maplibregl-popup-close-button {
+  font-size: 18px;
+}
