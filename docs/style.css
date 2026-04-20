@@ -177,6 +177,9 @@ html, body, #map {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 20px;
+  line-height: 1.8;
+  font-size: 15px;
+  max-width: none;
 }
 
 #aboutBody h2 {
@@ -192,6 +195,16 @@ html, body, #map {
   margin: 18px 0 8px;
   font-weight: 600;
   color: #333;
+}
+
+#aboutBody ul {
+  padding-left: 20px;
+  margin: 8px 0 16px;
+}
+
+#aboutBody li {
+  margin-bottom: 6px;
+  line-height: 1.7;
 }
 
 #listBody {
