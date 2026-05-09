@@ -14,6 +14,19 @@ const aboutBody  = document.getElementById('aboutBody');
 
 // list展開
 listBtn.onclick = () => {
+  const listOpen = listPanel.classList.contains('open');
+  const aboutOpen = aboutPanel.classList.contains('open');
+
+  // 既に開いてたら全部閉じる
+  if (listOpen || aboutOpen) {
+    listPanel.classList.remove('open');
+    aboutPanel.classList.remove('open');
+    document.body.classList.remove('list-open');
+    document.body.classList.remove('about-open');
+    return;
+  }
+
+  // リストを開く
   buildList();
   listPanel.classList.add('open');
   document.body.classList.add('list-open');
@@ -39,20 +52,6 @@ aboutBtn.onclick = () => {
 aboutClose.onclick = () => {
   aboutPanel.classList.remove('open');
 };
-
-// menuボタンでlistもaboutも閉じる
-listBtn.addEventListener('click', () => {
-  const listOpen = listPanel.classList.contains('open');
-  const aboutOpen = aboutPanel.classList.contains('open');
-
-  if (aboutOpen) {
-    aboutPanel.classList.remove('open');
-  }
-  
-  listPanel.classList.remove('open');
-  document.body.classList.remove('list-open');
-
-});
 
 // list本編
 function buildList() {
