@@ -9,6 +9,17 @@ def safe_str(v):
         return ""
     return str(v)
 
+def normalize_city(pref, city):
+    """市区町村名を '都道府県 + 市区町村' の完全名に統一する"""
+    if not pref or not city:
+        return city
+
+    # すでに「都道府県名＋市区町村名」ならそのまま
+    if city.startswith(pref):
+        return city
+
+    return f"{pref}{city}"
+
 # Excel読み込み
 df = pd.read_excel("ファミリーマート行脚.xlsx", sheet_name="ファミマ行脚")
 
@@ -30,8 +41,11 @@ for _, row in df.iterrows():
     lat = float(lat)
 
     # --- 日付（分まで） ---
-    # 例: 2017-03-11 10:01
     date_str = row["date"].strftime("%Y-%m-%d %H:%M")
+
+    pref = safe_str(row.get("pref"))
+    city_raw = safe_str(row.get("city"))
+    city = normalize_city(pref, city_raw)
 
     # --- GeoJSON Feature ---
     feature = {
@@ -45,8 +59,8 @@ for _, row in df.iterrows():
             "name": safe_str(row.get("name")),
             "rename": safe_str(row.get("rename")),
             "address": safe_str(row.get("address")),
-            "pref": safe_str(row.get("pref")),
-            "city": safe_str(row.get("city")),
+            "pref": pref,
+            "city": city,   # ← ここが完全名になる
             "date": date_str
         }
     }
