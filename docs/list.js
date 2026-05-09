@@ -30,6 +30,7 @@ listBtn.addEventListener('click', () => {
   document.body.classList.add('list-open');
 });
 
+// about展開
 aboutBtn.onclick = () => {
   fetch('about.html')
     .then(res => res.text())
@@ -39,6 +40,7 @@ aboutBtn.onclick = () => {
     });
 };
 
+// ×閉じる
 aboutClose.onclick = () => {
   aboutPanel.classList.remove('open');
 };
