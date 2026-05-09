@@ -10,20 +10,19 @@ def safe_str(v):
     return str(v)
 
 def normalize_city(pref, city):
-    """市区町村名を '都道府県 + 市区町村' の完全名に統一する"""
-    if not pref or not city:
+    if not city:
         return city
 
-    # すでに「都道府県名＋市区町村名」ならそのまま
-    if city.startswith(pref):
+    if "郡" in city:
         return city
 
-    return f"{pref}{city}"
+    return city
+
 
 # Excel読み込み
 df = pd.read_excel("ファミリーマート行脚.xlsx", sheet_name="ファミマ行脚")
 
-# ★ 文字列の日付を Timestamp に変換
+# 文字列の日付を Timestamp に変換
 df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
 features = []
@@ -60,7 +59,7 @@ for _, row in df.iterrows():
             "rename": safe_str(row.get("rename")),
             "address": safe_str(row.get("address")),
             "pref": pref,
-            "city": city,   # ← ここが完全名になる
+            "city": city,
             "date": date_str
         }
     }
