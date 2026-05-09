@@ -13,8 +13,8 @@ def normalize_city(pref, city):
     if not city:
         return city
 
-    if "郡" in city:
-        return city
+    if pref and city.startswith(pref):
+        city = city[len(pref):]
 
     return city
 
