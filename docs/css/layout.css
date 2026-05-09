@@ -71,6 +71,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body {
+  padding-top: env(safe-area-inset-top);
+}
+
 body.list-open .locate-btn {
   display: none;
 }
