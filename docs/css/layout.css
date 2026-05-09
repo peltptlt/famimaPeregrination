@@ -76,6 +76,7 @@ body {
   padding-top: env(safe-area-inset-top);
 }
 
-body.list-open .locate-btn {
+body.list-open .menu-btn,
+body.about-open .menu-btn {
   display: none;
 }
