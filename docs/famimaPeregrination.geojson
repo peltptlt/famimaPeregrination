@@ -109972,6 +109972,671 @@
         "city": "西臼杵郡高千穂町",
         "date": "2026-04-05 17:25"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.7995255,
+          43.2306585
+        ]
+      },
+      "properties": {
+        "no": 5789,
+        "name": "ファミリーマート 岩見沢岡山町店",
+        "rename": "",
+        "address": "日本、〒079-0181 北海道岩見沢市岡山町６−４",
+        "pref": "北海道",
+        "city": "岩見沢市",
+        "date": "2026-05-03 11:48"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.6288537,
+          42.8579334
+        ]
+      },
+      "properties": {
+        "no": 5790,
+        "name": "ファミリーマート 千歳勇舞７丁目店",
+        "rename": "",
+        "address": "日本、〒066-0078 北海道千歳市勇舞７丁目５−５",
+        "pref": "北海道",
+        "city": "千歳市",
+        "date": "2026-05-03 14:37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.6383004,
+          42.838157
+        ]
+      },
+      "properties": {
+        "no": 5791,
+        "name": "ファミリーマート 千歳新富３丁目店",
+        "rename": "",
+        "address": "日本、〒066-0037 北海道千歳市新富３丁目１１−７",
+        "pref": "北海道",
+        "city": "千歳市",
+        "date": "2026-05-03 14:47"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7605558,
+          35.6644495
+        ]
+      },
+      "properties": {
+        "no": 5792,
+        "name": "ファミリーマート 汐留タワー店",
+        "rename": "",
+        "address": "日本、〒105-0021 東京都港区東新橋１丁目６−６",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-04 10:16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7878158,
+          35.6298762
+        ]
+      },
+      "properties": {
+        "no": 5793,
+        "name": "ファミリーマート 東京ドリームパーク店",
+        "rename": "",
+        "address": "日本、〒135-0063 東京都江東区有明３丁目３−１０",
+        "pref": "東京都",
+        "city": "江東区",
+        "date": "2026-05-04 13:32"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7595165,
+          35.6668606
+        ]
+      },
+      "properties": {
+        "no": 5794,
+        "name": "ファミリーマート 新橋二丁目店",
+        "rename": "",
+        "address": "日本、〒105-0004 東京都港区新橋２丁目１９−２ 9F/10F",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-04 14:13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7591783,
+          35.6674685
+        ]
+      },
+      "properties": {
+        "no": 5795,
+        "name": "ファミリーマート メトロ新橋駅店",
+        "rename": "",
+        "address": "日本、〒105-0004 東京都港区新橋１丁目１１−７ 10F",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-04 14:41"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7419134,
+          35.7461402
+        ]
+      },
+      "properties": {
+        "no": 5796,
+        "name": "ファミリーマート 西ヶ原駅前店",
+        "rename": "",
+        "address": "日本、〒114-0024 東京都北区西ケ原２丁目４４−１０",
+        "pref": "東京都",
+        "city": "東京都北区",
+        "date": "2026-05-04 15:16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7465503,
+          35.7372625
+        ]
+      },
+      "properties": {
+        "no": 5797,
+        "name": "ファミリーマート 駒込駅北店",
+        "rename": "",
+        "address": "日本、〒170-0003 東京都豊島区駒込２丁目３−１",
+        "pref": "東京都",
+        "city": "豊島区",
+        "date": "2026-05-04 15:32"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7460724,
+          35.7386911
+        ]
+      },
+      "properties": {
+        "no": 5798,
+        "name": "ファミリーマート 駒込本郷通り店",
+        "rename": "",
+        "address": "日本、〒170-0003 東京都豊島区駒込３丁目２３−２３",
+        "pref": "東京都",
+        "city": "豊島区",
+        "date": "2026-05-04 15:36"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7481754,
+          35.7340889
+        ]
+      },
+      "properties": {
+        "no": 5799,
+        "name": "ファミリーマート 豊島駒込店",
+        "rename": "",
+        "address": "日本、〒170-0003 東京都豊島区駒込１丁目３−３",
+        "pref": "東京都",
+        "city": "豊島区",
+        "date": "2026-05-04 15:44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7487274,
+          35.7326752
+        ]
+      },
+      "properties": {
+        "no": 5800,
+        "name": "ファミリーマート 六義園店",
+        "rename": "",
+        "address": "日本、〒113-0021 東京都文京区本駒込６丁目１５−２０",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 15:47"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7537622,
+          35.725475
+        ]
+      },
+      "properties": {
+        "no": 5801,
+        "name": "ファミリーマート 本駒込駅前店",
+        "rename": "",
+        "address": "日本、〒113-0021 東京都文京区本駒込３丁目１−６",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 16:03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7551291,
+          35.7234481
+        ]
+      },
+      "properties": {
+        "no": 5802,
+        "name": "ファミリーマート 向丘二丁目北店",
+        "rename": "",
+        "address": "日本、〒113-0023 東京都文京区向丘２丁目２９−１１",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 16:09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7517291,
+          35.7240214
+        ]
+      },
+      "properties": {
+        "no": 5803,
+        "name": "ファミリーマート 本駒込一丁目店",
+        "rename": "",
+        "address": "日本、〒113-0021 東京都文京区本駒込１丁目４−４",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 16:16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7524094,
+          35.7226353
+        ]
+      },
+      "properties": {
+        "no": 5804,
+        "name": "ファミリーマート 白山五丁目店",
+        "rename": "",
+        "address": "日本、〒112-0001 東京都文京区白山５丁目３３−１３",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 16:21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7462849,
+          35.7272767
+        ]
+      },
+      "properties": {
+        "no": 5805,
+        "name": "ファミリーマート 本駒込二丁目店",
+        "rename": "",
+        "address": "日本、〒113-0021 東京都文京区本駒込２丁目１０−１",
+        "pref": "東京都",
+        "city": "文京区",
+        "date": "2026-05-04 16:32"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6793215,
+          35.7842832
+        ]
+      },
+      "properties": {
+        "no": 5806,
+        "name": "ファミリーマート 蓮根駅前店",
+        "rename": "",
+        "address": "日本、〒174-0043 東京都板橋区坂下２丁目１６−９",
+        "pref": "東京都",
+        "city": "板橋区",
+        "date": "2026-05-04 17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7333257,
+          35.6444299
+        ]
+      },
+      "properties": {
+        "no": 5807,
+        "name": "ファミリーマート 港区白金プラザ店",
+        "rename": "",
+        "address": "日本、〒108-0072 東京都港区白金１丁目１７−１",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-04 20:18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7199006,
+          35.7057118
+        ]
+      },
+      "properties": {
+        "no": 5808,
+        "name": "ファミリーマート 早稲田駅前店",
+        "rename": "",
+        "address": "日本、〒162-0045 東京都新宿区馬場下町５",
+        "pref": "東京都",
+        "city": "新宿区",
+        "date": "2026-05-04 20:52"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7189812,
+          35.7067114
+        ]
+      },
+      "properties": {
+        "no": 5809,
+        "name": "ファミリーマート 早稲田馬場下町店",
+        "rename": "",
+        "address": "日本、〒162-0045 東京都新宿区馬場下町６２ ファミリーマート早稲田馬場下町店",
+        "pref": "東京都",
+        "city": "新宿区",
+        "date": "2026-05-04 20:57"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6653148,
+          35.7083931
+        ]
+      },
+      "properties": {
+        "no": 5810,
+        "name": "ファミリーマート 中野五丁目店",
+        "rename": "",
+        "address": "日本、〒164-0001 東京都中野区中野５丁目６７−６",
+        "pref": "東京都",
+        "city": "中野区",
+        "date": "2026-05-05 09:47"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6647269,
+          35.708551
+        ]
+      },
+      "properties": {
+        "no": 5811,
+        "name": "ファミリーマート サンプラザ北店",
+        "rename": "",
+        "address": "日本、〒164-0001 東京都中野区中野４丁目２−１ 中野サンキビル",
+        "pref": "東京都",
+        "city": "中野区",
+        "date": "2026-05-05 09:50"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7759836,
+          35.7089749
+        ]
+      },
+      "properties": {
+        "no": 5812,
+        "name": "ファミリーマート 上野六丁目南店",
+        "rename": "",
+        "address": "日本、〒110-0005 東京都台東区上野６丁目７−２",
+        "pref": "東京都",
+        "city": "台東区",
+        "date": "2026-05-05 11:49"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7223621,
+          35.6528814
+        ]
+      },
+      "properties": {
+        "no": 5813,
+        "name": "ファミリーマート 広尾駅前店",
+        "rename": "",
+        "address": "日本、〒106-0047 東京都港区南麻布５丁目１０−２６",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-05 12:31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7089922,
+          35.6478384
+        ]
+      },
+      "properties": {
+        "no": 5814,
+        "name": "ファミリーマート メトロ恵比寿駅前店",
+        "rename": "",
+        "address": "日本、〒150-0021 東京都渋谷区恵比寿西１丁目７−４ エビスファーストビル",
+        "pref": "東京都",
+        "city": "渋谷区",
+        "date": "2026-05-05 12:43"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7471945,
+          35.6711859
+        ]
+      },
+      "properties": {
+        "no": 5815,
+        "name": "ファミマ!! ファミマ霞が関ビルディング店",
+        "rename": "",
+        "address": "日本、〒100-0013 東京都千代田区霞が関３丁目２−５",
+        "pref": "東京都",
+        "city": "千代田区",
+        "date": "2026-05-05 17:06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7507844,
+          35.6704034
+        ]
+      },
+      "properties": {
+        "no": 5816,
+        "name": "ファミリーマート 虎ノ門霞ケ関店",
+        "rename": "",
+        "address": "日本、〒105-0001 東京都港区虎ノ門１丁目１−２０",
+        "pref": "東京都",
+        "city": "東京都港区",
+        "date": "2026-05-05 17:31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7370956,
+          35.6946022
+        ]
+      },
+      "properties": {
+        "no": 5817,
+        "name": "ファミリーマート 市谷田町店",
+        "rename": "",
+        "address": "日本、〒162-0843 東京都新宿区市谷田町２丁目３８−３",
+        "pref": "東京都",
+        "city": "新宿区",
+        "date": "2026-05-05 20:42"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.73558,
+          35.69259
+        ]
+      },
+      "properties": {
+        "no": 5818,
+        "name": "ファミリーマート 新宿市谷見附店",
+        "rename": "",
+        "address": "日本、〒162-0843 東京都新宿区市谷田町１丁目３ 2F",
+        "pref": "東京都",
+        "city": "新宿区",
+        "date": "2026-05-05 20:46"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7373358,
+          35.6916152
+        ]
+      },
+      "properties": {
+        "no": 5819,
+        "name": "ファミリーマート 市ヶ谷店",
+        "rename": "",
+        "address": "日本、〒102-0073 東京都千代田区九段北４丁目２−１１",
+        "pref": "東京都",
+        "city": "千代田区",
+        "date": "2026-05-05 21:22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7358078,
+          35.6879012
+        ]
+      },
+      "properties": {
+        "no": 5820,
+        "name": "ファミリーマート 六番町日テレ前店",
+        "rename": "",
+        "address": "日本、〒102-0085 東京都千代田区六番町１−１０ 山陽六番町ビル",
+        "pref": "東京都",
+        "city": "千代田区",
+        "date": "2026-05-05 21:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7372086,
+          35.684525
+        ]
+      },
+      "properties": {
+        "no": 5821,
+        "name": "ファミリーマート 麹町駅前店",
+        "rename": "",
+        "address": "日本、〒102-0083 東京都千代田区麹町４丁目８",
+        "pref": "東京都",
+        "city": "千代田区",
+        "date": "2026-05-05 21:36"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7077783,
+          35.6461667
+        ]
+      },
+      "properties": {
+        "no": 5822,
+        "name": "ファミリーマート 恵比寿南交差点前店",
+        "rename": "",
+        "address": "日本、〒150-0022 東京都渋谷区恵比寿南１丁目２−９",
+        "pref": "東京都",
+        "city": "渋谷区",
+        "date": "2026-05-05 22:15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7128337,
+          35.6471106
+        ]
+      },
+      "properties": {
+        "no": 5823,
+        "name": "ファミリーマート 恵比寿駅東店",
+        "rename": "",
+        "address": "日本、〒150-0013 東京都渋谷区恵比寿１丁目１９−２３",
+        "pref": "東京都",
+        "city": "渋谷区",
+        "date": "2026-05-05 22:24"
+      }
     }
   ]
 }
