@@ -16,18 +16,15 @@ listBtn.addEventListener('click', () => {
   const listOpen = listPanel.classList.contains('open');
   const aboutOpen = aboutPanel.classList.contains('open');
 
-  // list/aboutどちらかが開いている → 全部閉じる
-  if (listOpen || aboutOpen) {
+  if (aboutOpen) {
     listPanel.classList.remove('open');
-    aboutPanel.classList.remove('open');
     document.body.classList.remove('list-open');
-    document.body.classList.remove('about-open');
     return;
   }
+  
+  listPanel.classList.remove('open');
+  document.body.classList.remove('list-open');
 
-  // list/aboutどちらも閉じている → listPanel を開く
-  listPanel.classList.add('open');
-  document.body.classList.add('list-open');
 });
 
 // about展開
