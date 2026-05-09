@@ -11,21 +11,19 @@ const aboutPanel = document.getElementById('aboutPanel');
 const aboutClose = document.getElementById('aboutClose');
 const aboutBody  = document.getElementById('aboutBody');
 
-// menuボタンで閉じる
-listBtn.addEventListener('click', () => {
-  const listOpen = listPanel.classList.contains('open');
-  const aboutOpen = aboutPanel.classList.contains('open');
 
-  if (aboutOpen) {
-    listPanel.classList.remove('open');
-    document.body.classList.remove('list-open');
-    return;
-  }
-  
+// list展開
+listBtn.onclick = () => {
+  buildList();
+  listPanel.classList.add('open');
+  document.body.classList.add('list-open');
+};
+
+// list閉じる
+listClose.onclick = () => {
   listPanel.classList.remove('open');
   document.body.classList.remove('list-open');
-
-});
+};
 
 // about展開
 aboutBtn.onclick = () => {
@@ -37,11 +35,26 @@ aboutBtn.onclick = () => {
     });
 };
 
-// ×閉じる
+// about閉じる
 aboutClose.onclick = () => {
   aboutPanel.classList.remove('open');
 };
 
+// menuボタンでlistもaboutも閉じる
+listBtn.addEventListener('click', () => {
+  const listOpen = listPanel.classList.contains('open');
+  const aboutOpen = aboutPanel.classList.contains('open');
+
+  if (aboutOpen) {
+    aboutPanel.classList.remove('open');
+  }
+  
+  listPanel.classList.remove('open');
+  document.body.classList.remove('list-open');
+
+});
+
+// list本編
 function buildList() {
   listBody.innerHTML = '';
 
@@ -112,17 +125,6 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
     buildList();
   };
 });
-
-listBtn.onclick = () => {
-  buildList();
-  listPanel.classList.add('open');
-  document.body.classList.add('list-open');
-};
-
-listClose.onclick = () => {
-  listPanel.classList.remove('open');
-  document.body.classList.remove('list-open');
-};
 
 // 都道府県セレクト変更イベント
 document.getElementById('prefFilter').onchange = e => {
