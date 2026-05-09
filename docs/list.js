@@ -173,7 +173,6 @@ document.getElementById('prefFilter').onchange = e => {
   buildList();
 };
 
-
 // 市区町村セレクト変更イベント
 citySelect.onchange = () => { 
   buildList();
