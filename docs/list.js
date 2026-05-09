@@ -5,12 +5,22 @@ const listBtn    = document.getElementById('listBtn');
 const listPanel  = document.getElementById('listPanel');
 const listBody   = document.getElementById('listBody');
 const listClose  = document.getElementById('listClose');
-const citySelect = document.getElementById('cityFilter');
 const aboutBtn   = document.getElementById('aboutBtn');
 const aboutPanel = document.getElementById('aboutPanel');
 const aboutClose = document.getElementById('aboutClose');
 const aboutBody  = document.getElementById('aboutBody');
+const prefSelect = document.getElementById('prefFilter');
+const citySelect = document.getElementById('cityFilter');
 
+// 都道府県リストを prefOrder から自動生成
+Object.keys(prefOrder)
+  .sort((a, b) => prefOrder[a] - prefOrder[b])
+  .forEach(pref => {
+    const opt = document.createElement('option');
+    opt.value = pref;
+    opt.textContent = pref;
+    prefSelect.appendChild(opt);
+  });
 
 // list展開
 listBtn.onclick = () => {
@@ -143,7 +153,12 @@ document.getElementById('prefFilter').onchange = e => {
       }
     });
 
-    const sorted = [...cities].sort((a, b) => a.localeCompare(b, 'ja'));
+    // cityOrder を使って Excel の順番でソート
+    const sorted = [...cities].sort((a, b) => {
+      const ca = cityOrder[a] ?? 999999;
+      const cb = cityOrder[b] ?? 999999;
+      return ca - cb;
+    });
 
     sorted.forEach(c => {
       const opt = document.createElement('option');
@@ -157,6 +172,7 @@ document.getElementById('prefFilter').onchange = e => {
 
   buildList();
 };
+
 
 // 市区町村セレクト変更イベント
 citySelect.onchange = () => { 
