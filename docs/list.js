@@ -12,20 +12,25 @@ const aboutBody  = document.getElementById('aboutBody');
 const prefSelect = document.getElementById('prefFilter');
 const citySelect = document.getElementById('cityFilter');
 
-// 件数集計
+
+// --------------------------------------
+// ① 件数集計
+// --------------------------------------
 const prefCounts = {};
+const cityCounts = {};
+
 allPoints.forEach(f => {
   const p = f.properties.pref;
-  prefCounts[p] = (prefCounts[p] || 0) + 1;
-});
-
-const cityCounts = {};
-allPoints.forEach(f => {
   const c = f.properties.city;
+
+  prefCounts[p] = (prefCounts[p] || 0) + 1;
   cityCounts[c] = (cityCounts[c] || 0) + 1;
 });
 
-// 最大文字数（件数揃え）
+
+// --------------------------------------
+// ② 最大文字数（揃え用）
+// --------------------------------------
 const maxPrefLen = Math.max(...Object.keys(prefCounts).map(p => p.length));
 const maxCityLen = Math.max(...Object.keys(cityCounts).map(c => c.length));
 
@@ -34,29 +39,34 @@ function padZenkaku(str, width) {
   return str + "　".repeat(padCount > 0 ? padCount : 0);
 }
 
-// 都道府県フィルター生成
+
+// --------------------------------------
+// ③ 都道府県フィルター生成（pref は必ず 1 件以上ある前提）
+// --------------------------------------
 Object.keys(prefOrder)
   .sort((a, b) => prefOrder[a] - prefOrder[b])
   .forEach(pref => {
+    // prefCounts に存在しない都道府県はスキップ（念のため）
+    if (!prefCounts[pref]) return;
+
     const opt = document.createElement('option');
     opt.value = pref;
 
-    const count = prefCounts[pref] || 0;
+    const count = prefCounts[pref];
     const padded = padZenkaku(pref, maxPrefLen);
 
     opt.textContent = `${padded}（${count}）`;
-
     prefSelect.appendChild(opt);
-  }
-);
+  });
 
 
-// list展開
+// --------------------------------------
+// ④ リスト展開
+// --------------------------------------
 listBtn.onclick = () => {
   const listOpen = listPanel.classList.contains('open');
   const aboutOpen = aboutPanel.classList.contains('open');
 
-  // 既に開いてたら全部閉じる
   if (listOpen || aboutOpen) {
     listPanel.classList.remove('open');
     aboutPanel.classList.remove('open');
@@ -65,19 +75,20 @@ listBtn.onclick = () => {
     return;
   }
 
-  // リストを開く
   buildList();
   listPanel.classList.add('open');
   document.body.classList.add('list-open');
 };
 
-// list閉じる
 listClose.onclick = () => {
   listPanel.classList.remove('open');
   document.body.classList.remove('list-open');
 };
 
-// about展開
+
+// --------------------------------------
+// ⑤ about
+// --------------------------------------
 aboutBtn.onclick = () => {
   fetch('about.html')
     .then(res => res.text())
@@ -87,32 +98,30 @@ aboutBtn.onclick = () => {
     });
 };
 
-// about閉じる
 aboutClose.onclick = () => {
   aboutPanel.classList.remove('open');
 };
 
-// list本編
+
+// --------------------------------------
+// ⑥ リスト本体
+// --------------------------------------
 function buildList() {
   listBody.innerHTML = '';
 
   let filtered = allPoints;
 
-  // 年フィルター
   if (currentYear !== 'all') {
     filtered = filtered.filter(f => {
       const d = f.properties.date || "";
-      const y = d.slice(0, 4);
-      return y === currentYear;
+      return d.slice(0, 4) === currentYear;
     });
   }
 
-  // 都道府県フィルター
   if (currentPref !== 'all') {
     filtered = filtered.filter(f => f.properties.pref === currentPref);
   }
 
-  // 市区町村フィルター
   if (citySelect.value !== "") {
     filtered = filtered.filter(f => f.properties.city === citySelect.value);
   }
@@ -142,12 +151,14 @@ function buildList() {
   });
 }
 
-// 年タブのクリックイベント
+
+// --------------------------------------
+// ⑦ 年タブ
+// --------------------------------------
 document.querySelectorAll('.year-tabs button').forEach(btn => {
   btn.onclick = () => {
     currentYear = btn.dataset.year;
 
-    // active 切り替え
     document.querySelectorAll('.year-tabs button')
       .forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -156,11 +167,13 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
   };
 });
 
-// 都道府県セレクト変更イベント
-document.getElementById('prefFilter').onchange = e => {
+
+// --------------------------------------
+// ⑧ 都道府県フィルター変更
+// --------------------------------------
+prefSelect.onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
 
-  // 市区町村フィルターをリセット
   citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
   citySelect.value = "";
   citySelect.disabled = true;
@@ -172,18 +185,18 @@ document.getElementById('prefFilter').onchange = e => {
       if (f.properties.pref === currentPref) {
         cities.add(f.properties.city);
       }
-    }
-  );
+    });
 
-    // cityOrder を使って Excel の順番でソート
     const sorted = [...cities].sort((a, b) => {
       const ca = cityOrder[a] ?? 999999;
       const cb = cityOrder[b] ?? 999999;
       return ca - cb;
-    }
-  );
+    });
 
     sorted.forEach(c => {
+      // ★ cityCounts が 0 の市区町村は出さない
+      if (!cityCounts[c]) return;
+
       const opt = document.createElement('option');
       opt.value = c;
 
@@ -191,10 +204,8 @@ document.getElementById('prefFilter').onchange = e => {
       const padded = padZenkaku(c, maxCityLen);
 
       opt.textContent = `${padded}（${count}）`;
-
       citySelect.appendChild(opt);
-    }
-  );
+    });
 
     citySelect.disabled = false;
   }
@@ -202,7 +213,10 @@ document.getElementById('prefFilter').onchange = e => {
   buildList();
 };
 
-// 市区町村セレクト変更イベント
+
+// --------------------------------------
+// ⑨ 市区町村フィルター変更
+// --------------------------------------
 citySelect.onchange = () => { 
   buildList();
- };
+};
