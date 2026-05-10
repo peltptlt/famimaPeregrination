@@ -30,7 +30,8 @@ const maxPrefLen = Math.max(...Object.keys(prefCounts).map(p => p.length));
 const maxCityLen = Math.max(...Object.keys(cityCounts).map(c => c.length));
 
 function padZenkaku(str, width) {
-  return str + "  ".repeat(width - str.length);
+  const padCount = width - str.length;
+  return str + "　".repeat(padCount > 0 ? padCount : 0);
 }
 
 // 都道府県フィルター生成
