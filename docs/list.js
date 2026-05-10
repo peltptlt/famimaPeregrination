@@ -12,15 +12,34 @@ const aboutBody  = document.getElementById('aboutBody');
 const prefSelect = document.getElementById('prefFilter');
 const citySelect = document.getElementById('cityFilter');
 
+// 都道府県ごとの件数を集計
+const prefCounts = {};
+allPoints.forEach(f => {
+  const p = f.properties.pref;
+  prefCounts[p] = (prefCounts[p] || 0) + 1;
+});
+
+// 市区町村ごとの件数を集計
+const cityCounts = {};
+allPoints.forEach(f => {
+  const c = f.properties.city;
+  cityCounts[c] = (cityCounts[c] || 0) + 1;
+});
+
+
 // 都道府県リストを prefOrder から自動生成
 Object.keys(prefOrder)
   .sort((a, b) => prefOrder[a] - prefOrder[b])
   .forEach(pref => {
     const opt = document.createElement('option');
     opt.value = pref;
-    opt.textContent = pref;
+
+    const count = prefCounts[pref] || 0;
+    opt.textContent = `${pref}（${count}）`;  // 件数
+
     prefSelect.appendChild(opt);
   });
+
 
 // list展開
 listBtn.onclick = () => {
@@ -153,10 +172,13 @@ document.getElementById('prefFilter').onchange = e => {
     });
 
     sorted.forEach(c => {
-      const opt = document.createElement('option');
-      opt.value = c;
-      opt.textContent = c;
-      citySelect.appendChild(opt);
+    const opt = document.createElement('option');
+    opt.value = c;
+    
+    const count = cityCounts[c] || 0;
+    opt.textContent = `${c}（${count}）`;  // 件数
+    
+    citySelect.appendChild(opt);
     });
 
     citySelect.disabled = false;
