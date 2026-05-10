@@ -47,6 +47,21 @@ Object.keys(prefOrder)
     opt.textContent = `${padded}（${count}）`;
 
     prefSelect.appendChild(opt);
+  }
+);
+
+Object.keys(prefCounts)
+  .sort((a, b) => (prefOrder[a] ?? 999) - (prefOrder[b] ?? 999))
+  .forEach(pref => {
+    const opt = document.createElement('option');
+    opt.value = pref;
+
+    const count = prefCounts[pref];
+    const padded = padZenkaku(pref, maxPrefLen);
+
+    opt.textContent = `${padded}（${count}）`;
+
+    prefSelect.appendChild(opt);
   });
 
 
@@ -171,26 +186,29 @@ document.getElementById('prefFilter').onchange = e => {
       if (f.properties.pref === currentPref) {
         cities.add(f.properties.city);
       }
-    });
+    }
+  );
 
     // cityOrder を使って Excel の順番でソート
     const sorted = [...cities].sort((a, b) => {
       const ca = cityOrder[a] ?? 999999;
       const cb = cityOrder[b] ?? 999999;
       return ca - cb;
-    });
+    }
+  );
 
     sorted.forEach(c => {
-    const opt = document.createElement('option');
-    opt.value = c;
-    
-    const count = cityCounts[c] || 0;
-    const padded = padZenkaku(c, maxCityLen);
+      const opt = document.createElement('option');
+      opt.value = c;
 
-    opt.textContent = `${padded}（${count}）`;  // 件数
-    
-    citySelect.appendChild(opt);
-    });
+      const count = cityCounts[c];
+      const padded = padZenkaku(c, maxCityLen);
+
+      opt.textContent = `${padded}（${count}）`;
+
+      citySelect.appendChild(opt);
+    }
+  );
 
     citySelect.disabled = false;
   }
