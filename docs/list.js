@@ -1,5 +1,6 @@
 let currentYear = 'all';
 let currentPref = 'all';
+let currentCity = "all";
 
 const listBtn    = document.getElementById('listBtn');
 const listPanel  = document.getElementById('listPanel');
@@ -176,9 +177,11 @@ document.getElementById('prefFilter').onchange = e => {
 };
 
 // 市区町村セレクト変更イベント
-citySelect.onchange = () => { 
+citySelect.onchange = e => {
+  currentCity = e.target.value === "" ? "" : e.target.value;
   buildList();
- };
+};
+
 
 // 都道府県集計
 function buildPrefFilter() {
