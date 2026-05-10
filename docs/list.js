@@ -65,46 +65,56 @@ aboutClose.onclick = () => {
 
 // list本編
 function buildList() {
-  listBody.innerHTML = '';
+  listBody.innerHTML = "";
 
   let filtered = allPoints;
 
   // 年フィルター
-  if (currentYear !== 'all') {
+  if (currentYear !== "all") {
     filtered = filtered.filter(f => {
-      const d = f.properties.date || "";
-      const y = d.slice(0, 4);
+      const y = (f.properties.date || "").slice(0, 4);
       return y === currentYear;
     });
   }
 
   // 都道府県フィルター
-  if (currentPref !== 'all') {
+  if (currentPref !== "all") {
     filtered = filtered.filter(f => f.properties.pref === currentPref);
   }
 
   // 市区町村フィルター
-  if (citySelect.value !== "") {
-    filtered = filtered.filter(f => f.properties.city === citySelect.value);
+  if (currentCity) {
+    filtered = filtered.filter(f => f.properties.city === currentCity);
   }
 
+  // prefOrder → cityOrder の順番で並べる
+  filtered.sort((a, b) => {
+    const pa = prefOrder[a.properties.pref] ?? 999;
+    const pb = prefOrder[b.properties.pref] ?? 999;
+    if (pa !== pb) return pa - pb;
+
+    const ca = cityOrder[a.properties.city] ?? 999999;
+    const cb = cityOrder[b.properties.city] ?? 999999;
+    return ca - cb;
+  });
+
   filtered.forEach(f => {
-    const div = document.createElement('div');
-    div.className = 'list-item';
+    const div = document.createElement("div");
+    div.className = "list-item";
 
     div.innerHTML = `
       <div class="list-title">
         <span class="list-no">${f.properties.no}</span>
-        <span class="list-name">${f.properties.name || ''}</span>
+        <span class="list-name">${f.properties.name || ""}</span>
       </div>
-
-      ${f.properties.rename ? `<div class="list-rename">${f.properties.rename}</div>` : ''}
-      ${f.properties.address ? `<div class="list-address">${f.properties.address}</div>` : ''}
-      ${f.properties.date ? `<div class="list-date">${f.properties.date}</div>` : ''}
+      <div class="list-pref">${f.properties.pref_label}</div>
+      <div class="list-city">${f.properties.city_label}</div>
+      ${f.properties.address ? `<div class="list-address">${f.properties.address}</div>` : ""}
+      ${f.properties.date ? `<div class="list-date">${f.properties.date}</div>` : ""}
     `;
 
     div.onclick = () => {
-      listPanel.classList.remove('open');
+      listPanel.classList.remove("open");
       map.flyTo({ center: f.geometry.coordinates, zoom: 13 });
       showPopup(f);
     };
@@ -169,3 +179,66 @@ document.getElementById('prefFilter').onchange = e => {
 citySelect.onchange = () => { 
   buildList();
  };
+
+// 都道府県集計
+function buildPrefFilter() {
+  prefSelect.innerHTML = `<option value="">すべての都道府県</option>`;
+
+  const prefs = new Set(allPoints.map(f => f.properties.pref));
+
+  // prefOrder の順番で並べる
+  const sorted = [...prefs].sort((a, b) => {
+    const pa = prefOrder[a] ?? 999;
+    const pb = prefOrder[b] ?? 999;
+    return pa - pb;
+  });
+
+  sorted.forEach(pref => {
+    const opt = document.createElement("option");
+    opt.value = pref;
+
+    // GeoJSON に入れた pref_label を使う
+    const sample = allPoints.find(f => f.properties.pref === pref);
+    opt.textContent = sample.properties.pref_label;
+
+    prefSelect.appendChild(opt);
+  });
+}
+
+
+// 市区町村集計
+function buildCityFilter(currentPref) {
+  citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
+
+  if (!currentPref || currentPref === "all") {
+    citySelect.disabled = true;
+    return;
+  }
+
+  const cities = new Set();
+
+  allPoints.forEach(f => {
+    if (f.properties.pref === currentPref) {
+      cities.add(f.properties.city);
+    }
+  });
+
+  // cityOrder の順番で並べる
+  const sorted = [...cities].sort((a, b) => {
+    const ca = cityOrder[a] ?? 999999;
+    const cb = cityOrder[b] ?? 999999;
+    return ca - cb;
+  });
+
+  sorted.forEach(city => {
+    const opt = document.createElement("option");
+    opt.value = city;
+
+    const sample = allPoints.find(f => f.properties.city === city);
+    opt.textContent = sample.properties.city_label;
+
+    citySelect.appendChild(opt);
+  });
+
+  citySelect.disabled = false;
+}
