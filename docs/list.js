@@ -12,17 +12,25 @@ const aboutBody  = document.getElementById('aboutBody');
 const prefSelect = document.getElementById('prefFilter');
 const citySelect = document.getElementById('cityFilter');
 
-// 件数集計
-const prefCounts = {};
-allPoints.forEach(f => {
-  const p = f.properties.pref;
-  prefCounts[p] = (prefCounts[p] || 0) + 1;
-});
+// 文字列正規化（前後の全角/半角スペースを削る）
+function norm(s) {
+  return (s || '').replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+}
 
+// 件数集計（正規化してからカウント）
+const prefCounts = {};
 const cityCounts = {};
+
 allPoints.forEach(f => {
-  const c = f.properties.city;
+  const p = norm(f.properties.pref);
+  const c = norm(f.properties.city);
+
+  prefCounts[p] = (prefCounts[p] || 0) + 1;
   cityCounts[c] = (cityCounts[c] || 0) + 1;
+
+  // 元データ側も正規化しておくと後の比較が楽
+  f.properties.pref = p;
+  f.properties.city = c;
 });
 
 // 最大文字数（件数揃え）
@@ -31,32 +39,33 @@ const maxCityLen = Math.max(...Object.keys(cityCounts).map(c => c.length));
 
 function padZenkaku(str, width) {
   const padCount = width - str.length;
-  return str + "　".repeat(padCount > 0 ? padCount : 0);
+  return str + '　'.repeat(padCount > 0 ? padCount : 0);
 }
 
-// 都道府県フィルター生成
+// 都道府県フィルター生成（prefOrder はそのまま使う）
 Object.keys(prefOrder)
   .sort((a, b) => prefOrder[a] - prefOrder[b])
   .forEach(pref => {
+    const normPref = norm(pref);
+    const count = prefCounts[normPref];
+
+    // この都道府県にデータがなければ出さない
+    if (!count) return;
+
     const opt = document.createElement('option');
-    opt.value = pref;
+    opt.value = normPref;
 
-    const count = prefCounts[pref] || 0;
-    const padded = padZenkaku(pref, maxPrefLen);
-
+    const padded = padZenkaku(normPref, maxPrefLen);
     opt.textContent = `${padded}（${count}）`;
 
     prefSelect.appendChild(opt);
-  }
-);
-
+  });
 
 // list展開
 listBtn.onclick = () => {
   const listOpen = listPanel.classList.contains('open');
   const aboutOpen = aboutPanel.classList.contains('open');
 
-  // 既に開いてたら全部閉じる
   if (listOpen || aboutOpen) {
     listPanel.classList.remove('open');
     aboutPanel.classList.remove('open');
@@ -65,7 +74,6 @@ listBtn.onclick = () => {
     return;
   }
 
-  // リストを開く
   buildList();
   listPanel.classList.add('open');
   document.body.classList.add('list-open');
@@ -101,7 +109,7 @@ function buildList() {
   // 年フィルター
   if (currentYear !== 'all') {
     filtered = filtered.filter(f => {
-      const d = f.properties.date || "";
+      const d = f.properties.date || '';
       const y = d.slice(0, 4);
       return y === currentYear;
     });
@@ -109,12 +117,12 @@ function buildList() {
 
   // 都道府県フィルター
   if (currentPref !== 'all') {
-    filtered = filtered.filter(f => f.properties.pref === currentPref);
+    filtered = filtered.filter(f => norm(f.properties.pref) === currentPref);
   }
 
   // 市区町村フィルター
-  if (citySelect.value !== "") {
-    filtered = filtered.filter(f => f.properties.city === citySelect.value);
+  if (citySelect.value !== '') {
+    filtered = filtered.filter(f => norm(f.properties.city) === citySelect.value);
   }
 
   filtered.forEach(f => {
@@ -147,7 +155,6 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
   btn.onclick = () => {
     currentYear = btn.dataset.year;
 
-    // active 切り替え
     document.querySelectorAll('.year-tabs button')
       .forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -157,44 +164,42 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
 });
 
 // 都道府県セレクト変更イベント
-document.getElementById('prefFilter').onchange = e => {
+prefSelect.onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
 
   // 市区町村フィルターをリセット
   citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
-  citySelect.value = "";
+  citySelect.value = '';
   citySelect.disabled = true;
 
   if (currentPref !== 'all') {
     const cities = new Set();
 
     allPoints.forEach(f => {
-      if (f.properties.pref === currentPref) {
-        cities.add(f.properties.city);
+      if (norm(f.properties.pref) === currentPref) {
+        cities.add(norm(f.properties.city));
       }
-    }
-  );
+    });
 
     // cityOrder を使って Excel の順番でソート
     const sorted = [...cities].sort((a, b) => {
       const ca = cityOrder[a] ?? 999999;
       const cb = cityOrder[b] ?? 999999;
       return ca - cb;
-    }
-  );
+    });
 
     sorted.forEach(c => {
+      const count = cityCounts[c];
+      if (!count) return; // 0件は出さない（あり得る前提）
+
       const opt = document.createElement('option');
       opt.value = c;
 
-      const count = cityCounts[c];
       const padded = padZenkaku(c, maxCityLen);
-
       opt.textContent = `${padded}（${count}）`;
 
       citySelect.appendChild(opt);
-    }
-  );
+    });
 
     citySelect.disabled = false;
   }
@@ -203,6 +208,6 @@ document.getElementById('prefFilter').onchange = e => {
 };
 
 // 市区町村セレクト変更イベント
-citySelect.onchange = () => { 
+citySelect.onchange = () => {
   buildList();
- };
+};
