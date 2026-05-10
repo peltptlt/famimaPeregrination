@@ -35,21 +35,6 @@ function padZenkaku(str, width) {
 }
 
 // 都道府県フィルター生成
-Object.keys(prefOrder)
-  .sort((a, b) => prefOrder[a] - prefOrder[b])
-  .forEach(pref => {
-    const opt = document.createElement('option');
-    opt.value = pref;
-
-    const count = prefCounts[pref] || 0;
-    const padded = padZenkaku(pref, maxPrefLen);
-
-    opt.textContent = `${padded}（${count}）`;
-
-    prefSelect.appendChild(opt);
-  }
-);
-
 Object.keys(prefCounts)
   .sort((a, b) => (prefOrder[a] ?? 999) - (prefOrder[b] ?? 999))
   .forEach(pref => {
