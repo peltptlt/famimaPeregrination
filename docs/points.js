@@ -72,14 +72,14 @@ map.on('load', () => {
         }
       });
 
-      // クリック系はここ！
+      // クリック
       map.on('click', 'points-number', e => showPopup(e.features[0]));
       map.on('mouseenter', 'points-number', () => map.getCanvas().style.cursor = 'pointer');
       map.on('mouseleave', 'points-number', () => map.getCanvas().style.cursor = '');
     });
 });
 
-/* 共通ポップアップ */
+// 共通ポップアップ
 window.showPopup = function(feature) {
   const title =
     feature.properties.rename?.trim()
