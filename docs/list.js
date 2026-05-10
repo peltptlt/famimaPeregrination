@@ -142,6 +142,8 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
 document.getElementById('prefFilter').onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
 
+  currentCity = "";
+  
   // 市区町村フィルターをリセット
   citySelect.innerHTML = `<option value="">すべての市区町村</option>`;
   citySelect.value = "";
