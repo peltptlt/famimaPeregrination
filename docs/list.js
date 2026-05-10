@@ -14,7 +14,7 @@ const citySelect = document.getElementById('cityFilter');
 
 
 // --------------------------------------
-// ① 件数集計
+// 件数集計
 // --------------------------------------
 const prefCounts = {};
 const cityCounts = {};
@@ -29,7 +29,7 @@ allPoints.forEach(f => {
 
 
 // --------------------------------------
-// ② prefOrder / cityOrder を “存在するものだけ” に縮小
+// prefOrder / cityOrder
 // --------------------------------------
 Object.keys(prefOrder).forEach(pref => {
   if (!prefCounts[pref]) delete prefOrder[pref];
@@ -41,7 +41,7 @@ Object.keys(cityOrder).forEach(city => {
 
 
 // --------------------------------------
-// ③ 最大文字数（揃え用）
+// 最大文字数（揃え用）
 // --------------------------------------
 const maxPrefLen = Math.max(...Object.keys(prefCounts).map(p => p.length));
 const maxCityLen = Math.max(...Object.keys(cityCounts).map(c => c.length));
@@ -53,7 +53,7 @@ function padZenkaku(str, width) {
 
 
 // --------------------------------------
-// ④ 都道府県フィルター生成
+// 都道府県フィルター生成
 // --------------------------------------
 Object.keys(prefOrder)
   .sort((a, b) => prefOrder[a] - prefOrder[b])
@@ -70,7 +70,7 @@ Object.keys(prefOrder)
 
 
 // --------------------------------------
-// ⑤ リスト展開
+// リスト展開
 // --------------------------------------
 listBtn.onclick = () => {
   const listOpen = listPanel.classList.contains('open');
@@ -96,7 +96,7 @@ listClose.onclick = () => {
 
 
 // --------------------------------------
-// ⑥ about
+// about
 // --------------------------------------
 aboutBtn.onclick = () => {
   fetch('about.html')
@@ -113,7 +113,7 @@ aboutClose.onclick = () => {
 
 
 // --------------------------------------
-// ⑦ リスト本体
+// リスト本体
 // --------------------------------------
 function buildList() {
   listBody.innerHTML = '';
@@ -162,7 +162,7 @@ function buildList() {
 
 
 // --------------------------------------
-// ⑧ 年タブ
+// 年タブ
 // --------------------------------------
 document.querySelectorAll('.year-tabs button').forEach(btn => {
   btn.onclick = () => {
@@ -178,7 +178,7 @@ document.querySelectorAll('.year-tabs button').forEach(btn => {
 
 
 // --------------------------------------
-// ⑨ 都道府県フィルター変更
+// 都道府県フィルター変更
 // --------------------------------------
 prefSelect.onchange = e => {
   currentPref = e.target.value === '' ? 'all' : e.target.value;
@@ -221,7 +221,7 @@ prefSelect.onchange = e => {
 
 
 // --------------------------------------
-// ⑩ 市区町村フィルター変更
+// 市区町村フィルター変更
 // --------------------------------------
 citySelect.onchange = () => { 
   buildList();
