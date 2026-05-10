@@ -12,22 +12,28 @@ const aboutBody  = document.getElementById('aboutBody');
 const prefSelect = document.getElementById('prefFilter');
 const citySelect = document.getElementById('cityFilter');
 
-// 都道府県ごとの件数を集計
+// 件数集計
 const prefCounts = {};
 allPoints.forEach(f => {
   const p = f.properties.pref;
   prefCounts[p] = (prefCounts[p] || 0) + 1;
 });
 
-// 市区町村ごとの件数を集計
 const cityCounts = {};
 allPoints.forEach(f => {
   const c = f.properties.city;
   cityCounts[c] = (cityCounts[c] || 0) + 1;
 });
 
+// 最大文字数（件数揃え）
+const maxPrefLen = Math.max(...Object.keys(prefCounts).map(p => p.length));
+const maxCityLen = Math.max(...Object.keys(cityCounts).map(c => c.length));
 
-// 都道府県リストを prefOrder から自動生成
+function padZenkaku(str, width) {
+  return str + "　".repeat(width - str.length);
+}
+
+// 都道府県フィルター生成
 Object.keys(prefOrder)
   .sort((a, b) => prefOrder[a] - prefOrder[b])
   .forEach(pref => {
@@ -35,7 +41,9 @@ Object.keys(prefOrder)
     opt.value = pref;
 
     const count = prefCounts[pref] || 0;
-    opt.textContent = `${pref}（${count}）`;  // 件数
+    const padded = padZenkaku(pref, maxPrefLen);
+
+    opt.textContent = `${padded}（${count}）`;
 
     prefSelect.appendChild(opt);
   });
@@ -176,7 +184,9 @@ document.getElementById('prefFilter').onchange = e => {
     opt.value = c;
     
     const count = cityCounts[c] || 0;
-    opt.textContent = `${c}（${count}）`;  // 件数
+    const padded = padZenkaku(c, maxCityLen);
+
+    opt.textContent = `${padded}（${count}）`;  // 件数
     
     citySelect.appendChild(opt);
     });
