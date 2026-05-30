@@ -92,12 +92,32 @@ window.showPopup = function(feature) {
   new maplibregl.Popup({ offset: 12, maxWidth: '90vw' })
     .setLngLat(feature.geometry.coordinates)
     .setHTML(`
-      <b>${feature.properties.no}</b><br>
-      ${title}<br>
-      <span style="color:#666;">${address}</span><br>
-      <span style="color:#1e88e5;">${date}</span>
+      <div style="
+        background:#fff;
+        padding:14px 16px;
+        border-radius:12px;
+        box-shadow:0 4px 14px rgba(0,0,0,0.18);
+        line-height:1.5;
+      ">
+        <div style="font-size:18px; font-weight:700; color:#1e8e3e; margin-bottom:6px;">
+          #${feature.properties.no}
+        </div>
+
+        <div style="font-size:16px; font-weight:600; margin-bottom:8px;">
+          ${title}
+        </div>
+
+        <div style="color:#666; margin-bottom:6px;">
+          ${address}
+        </div>
+
+        <div style="color:#1e88e5; font-weight:600;">
+          ${date}
+        </div>
+      </div>
     `)
     .addTo(map);
 };
+
 
 
