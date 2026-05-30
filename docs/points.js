@@ -83,7 +83,7 @@ map.on('load', () => {
 window.showPopup = function(feature) {
   const title =
     feature.properties.rename?.trim()
-      ? `${feature.properties.name}<br><span style="font-size:12px; color:#888;">${feature.properties.rename}</span>`
+      ? `${feature.properties.name}<br><span style="font-size:12px; color:#777;">${feature.properties.rename}</span>`
       : feature.properties.name;
 
   const address = feature.properties.address || "";
@@ -93,31 +93,31 @@ window.showPopup = function(feature) {
     .setLngLat(feature.geometry.coordinates)
     .setHTML(`
       <div style="
-        background:#fff;
-        border-radius:14px;
+        backdrop-filter: blur(10px);
+        background:rgba(255,255,255,0.75);
+        border-radius:16px;
         overflow:hidden;
-        box-shadow:0 4px 18px rgba(0,0,0,0.22);
+        box-shadow:0 6px 22px rgba(0,0,0,0.25);
         font-size:13px;
         line-height:1.45;
       ">
         <div style="
-          background:linear-gradient(135deg, #66bb6a, #43a047);
+          background:linear-gradient(135deg, rgba(102,187,106,0.9), rgba(67,160,71,0.9));
           padding:10px 14px;
           color:#fff;
           font-size:15px;
           font-weight:700;
-          letter-spacing:0.4px;
           text-shadow:0 1px 2px rgba(0,0,0,0.25);
         ">
           ${feature.properties.name}
         </div>
 
         <div style="padding:12px 14px;">
-          <div style="color:#888; margin-bottom:4px; font-size:12px;">
+          <div style="color:#777; margin-bottom:4px; font-size:12px;">
             #${feature.properties.no}
           </div>
 
-          <div style="color:#666; margin-bottom:4px;">
+          <div style="color:#444; margin-bottom:4px;">
             ${address}
           </div>
 
