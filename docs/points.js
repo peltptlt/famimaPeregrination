@@ -93,29 +93,29 @@ window.showPopup = function(feature) {
     .setLngLat(feature.geometry.coordinates)
     .setHTML(`
       <div style="
-        background:#fff;
+        backdrop-filter: blur(10px);
+        background:rgba(255,255,255,0.75);
         border-radius:16px;
         overflow:hidden;
-        box-shadow:0 6px 20px rgba(0,0,0,0.25);
+        box-shadow:0 6px 22px rgba(0,0,0,0.25);
       ">
         <div style="
-          background:linear-gradient(135deg, #43a047, #66bb6a, #81c784, #a5d6a7);
-          padding:14px 18px;
+          background:linear-gradient(135deg, rgba(102,187,106,0.9), rgba(67,160,71,0.9));
+          padding:12px 16px;
           color:#fff;
-          font-size:18px;
-          font-weight:800;
-          letter-spacing:0.6px;
-          text-shadow:0 1px 3px rgba(0,0,0,0.3);
+          font-size:17px;
+          font-weight:700;
+          text-shadow:0 1px 2px rgba(0,0,0,0.25);
         ">
           #${feature.properties.no}　${feature.properties.name}
         </div>
 
-        <div style="padding:14px 18px; line-height:1.6;">
-          <div style="color:#555; margin-bottom:8px;">
+        <div style="padding:14px 16px; line-height:1.55;">
+          <div style="color:#333; margin-bottom:6px;">
             ${address}
           </div>
 
-          <div style="color:#1e88e5; font-weight:700;">
+          <div style="color:#1e88e5; font-weight:600;">
             ${date}
           </div>
         </div>
