@@ -93,17 +93,17 @@ window.showPopup = function(feature) {
       <div style="
         background:#fff;
         border-radius:14px;
-        border:1.5px solid #e0e0e0;       /* ← 二重枠ではなく “枠フチ” */
-        overflow:hidden;
-        box-shadow:0 4px 18px rgba(0,0,0,0.22);
+        border:1.5px solid #dcdcdc;       /* ← 枠フチだけ */
+        box-shadow:0 4px 16px rgba(0,0,0,0.18);
         font-size:13px;
         line-height:1.45;
+        overflow:hidden;
       ">
-        
+
         <!-- ヘッダー（name 主役） -->
         <div style="
           background:linear-gradient(135deg, #66bb6a, #43a047);
-          padding:10px 14px;
+          padding:8px 12px;
           color:#fff;
           font-size:15px;
           font-weight:700;
@@ -114,10 +114,10 @@ window.showPopup = function(feature) {
           ${rename ? `<div style="font-size:11px; opacity:0.85;">${rename}</div>` : ""}
         </div>
 
-        <!-- 本文 -->
-        <div style="padding:12px 14px;">
+        <!-- 本文（軽量・サブ情報） -->
+        <div style="padding:10px 12px;">
 
-          <!-- no + date を横並びに -->
+          <!-- no + date 横並び -->
           <div style="
             display:flex;
             justify-content:space-between;
@@ -126,10 +126,10 @@ window.showPopup = function(feature) {
             margin-bottom:6px;
           ">
             <span>#${no}</span>
-            <span>${date}</span>
+            <span style="color:#1e88e5;">${date}</span>   <!-- ← 青のまま -->
           </div>
 
-          <!-- address はサブ情報として控えめ -->
+          <!-- address（控えめ） -->
           <div style="color:#666; font-size:12px;">
             ${address}
           </div>
