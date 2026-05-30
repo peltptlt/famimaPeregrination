@@ -93,14 +93,14 @@ window.showPopup = function(feature) {
       <div style="
         background:#fff;
         border-radius:14px;
-        border:1.5px solid #dcdcdc;       /* ← 枠フチだけ */
+        border:1.5px solid #dcdcdc;
         box-shadow:0 4px 16px rgba(0,0,0,0.18);
         font-size:13px;
         line-height:1.45;
         overflow:hidden;
       ">
 
-        <!-- ヘッダー（name 主役） -->
+        <!-- name 主役 -->
         <div style="
           background:linear-gradient(135deg, #66bb6a, #43a047);
           padding:8px 12px;
@@ -114,22 +114,20 @@ window.showPopup = function(feature) {
           ${rename ? `<div style="font-size:11px; opacity:0.85;">${rename}</div>` : ""}
         </div>
 
-        <!-- 本文（軽量・サブ情報） -->
         <div style="padding:10px 12px;">
 
-          <!-- no + date 横並び -->
+          <!-- no + date 左寄せで統一 -->
           <div style="
             display:flex;
-            justify-content:space-between;
+            gap:12px;
             color:#777;
             font-size:11px;
             margin-bottom:6px;
           ">
             <span>#${no}</span>
-            <span style="color:#1e88e5;">${date}</span>   <!-- ← 青のまま -->
+            <span style="color:#1e88e5;">${date}</span>
           </div>
 
-          <!-- address（控えめ） -->
           <div style="color:#666; font-size:12px;">
             ${address}
           </div>
