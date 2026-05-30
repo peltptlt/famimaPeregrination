@@ -83,7 +83,7 @@ map.on('load', () => {
 window.showPopup = function(feature) {
   const title =
     feature.properties.rename?.trim()
-      ? `${feature.properties.name}<br>${feature.properties.rename}`
+      ? `${feature.properties.name}<br><span style="font-size:12px; color:#888;">${feature.properties.rename}</span>`
       : feature.properties.name;
 
   const address = feature.properties.address || "";
@@ -97,25 +97,31 @@ window.showPopup = function(feature) {
         border-radius:14px;
         overflow:hidden;
         box-shadow:0 4px 18px rgba(0,0,0,0.22);
+        font-size:13px;
+        line-height:1.45;
       ">
         <div style="
           background:linear-gradient(135deg, #66bb6a, #43a047);
-          padding:12px 16px;
+          padding:10px 14px;
           color:#fff;
-          font-size:17px;
+          font-size:15px;
           font-weight:700;
-          letter-spacing:0.5px;
+          letter-spacing:0.4px;
           text-shadow:0 1px 2px rgba(0,0,0,0.25);
         ">
-          #${feature.properties.no}　${feature.properties.name}
+          ${feature.properties.name}
         </div>
 
-        <div style="padding:14px 16px; line-height:1.55;">
-          <div style="color:#555; margin-bottom:6px;">
+        <div style="padding:12px 14px;">
+          <div style="color:#888; margin-bottom:4px; font-size:12px;">
+            #${feature.properties.no}
+          </div>
+
+          <div style="color:#666; margin-bottom:4px;">
             ${address}
           </div>
 
-          <div style="color:#1e88e5; font-weight:600;">
+          <div style="color:#1e88e5; font-weight:600; font-size:12px;">
             ${date}
           </div>
         </div>
