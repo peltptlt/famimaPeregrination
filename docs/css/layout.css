@@ -79,3 +79,22 @@ body {
 body.list-open .locate-btn {
   display: none;
 }
+
+#aboutBtn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1.5px solid #1e8e3e;
+  color: #1e8e3e;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+#aboutBtn:hover {
+  background: #e8f5e9;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
