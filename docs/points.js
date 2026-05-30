@@ -81,49 +81,59 @@ map.on('load', () => {
 
 // 共通ポップアップ
 window.showPopup = function(feature) {
-  const title =
-    feature.properties.rename?.trim()
-      ? `${feature.properties.name}<br><span style="font-size:12px; color:#777;">${feature.properties.rename}</span>`
-      : feature.properties.name;
-
+  const name = feature.properties.name || "";
+  const rename = feature.properties.rename?.trim() || "";
   const address = feature.properties.address || "";
   const date = feature.properties.date || "";
+  const no = feature.properties.no;
 
   new maplibregl.Popup({ offset: 12, maxWidth: '90vw' })
     .setLngLat(feature.geometry.coordinates)
     .setHTML(`
       <div style="
-        backdrop-filter: blur(10px);
-        background:rgba(255,255,255,0.75);
-        border-radius:16px;
+        background:#fff;
+        border-radius:14px;
+        border:1.5px solid #e0e0e0;       /* ← 二重枠ではなく “枠フチ” */
         overflow:hidden;
-        box-shadow:0 6px 22px rgba(0,0,0,0.25);
+        box-shadow:0 4px 18px rgba(0,0,0,0.22);
         font-size:13px;
         line-height:1.45;
       ">
+        
+        <!-- ヘッダー（name 主役） -->
         <div style="
-          background:linear-gradient(135deg, rgba(102,187,106,0.9), rgba(67,160,71,0.9));
+          background:linear-gradient(135deg, #66bb6a, #43a047);
           padding:10px 14px;
           color:#fff;
           font-size:15px;
           font-weight:700;
+          letter-spacing:0.4px;
           text-shadow:0 1px 2px rgba(0,0,0,0.25);
         ">
-          ${feature.properties.name}
+          ${name}
+          ${rename ? `<div style="font-size:11px; opacity:0.85;">${rename}</div>` : ""}
         </div>
 
+        <!-- 本文 -->
         <div style="padding:12px 14px;">
-          <div style="color:#777; margin-bottom:4px; font-size:12px;">
-            #${feature.properties.no}
+
+          <!-- no + date を横並びに -->
+          <div style="
+            display:flex;
+            justify-content:space-between;
+            color:#777;
+            font-size:11px;
+            margin-bottom:6px;
+          ">
+            <span>#${no}</span>
+            <span>${date}</span>
           </div>
 
-          <div style="color:#444; margin-bottom:4px;">
+          <!-- address はサブ情報として控えめ -->
+          <div style="color:#666; font-size:12px;">
             ${address}
           </div>
 
-          <div style="color:#1e88e5; font-weight:600; font-size:12px;">
-            ${date}
-          </div>
         </div>
       </div>
     `)
