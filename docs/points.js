@@ -95,16 +95,13 @@ window.showPopup = function(feature) {
       <div style="
         background:#fff;
         padding:14px 16px;
-        border-radius:12px;
-        box-shadow:0 4px 14px rgba(0,0,0,0.18);
+        border-left:6px solid #1e8e3e;
+        border-radius:10px;
+        box-shadow:0 3px 12px rgba(0,0,0,0.15);
         line-height:1.5;
       ">
-        <div style="font-size:18px; font-weight:700; color:#1e8e3e; margin-bottom:6px;">
-          #${feature.properties.no}
-        </div>
-
-        <div style="font-size:16px; font-weight:600; margin-bottom:8px;">
-          ${title}
+        <div style="font-size:17px; font-weight:700; margin-bottom:6px;">
+          #${feature.properties.no}　${feature.properties.name}
         </div>
 
         <div style="color:#666; margin-bottom:6px;">
@@ -118,6 +115,4 @@ window.showPopup = function(feature) {
     `)
     .addTo(map);
 };
-
-
 
