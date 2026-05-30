@@ -94,28 +94,28 @@ window.showPopup = function(feature) {
     .setHTML(`
       <div style="
         background:#fff;
-        border-radius:14px;
+        border-radius:16px;
         overflow:hidden;
-        box-shadow:0 4px 18px rgba(0,0,0,0.22);
+        box-shadow:0 6px 20px rgba(0,0,0,0.25);
       ">
         <div style="
-          background:linear-gradient(135deg, #66bb6a, #43a047);
-          padding:12px 16px;
+          background:linear-gradient(135deg, #43a047, #66bb6a, #81c784, #a5d6a7);
+          padding:14px 18px;
           color:#fff;
-          font-size:17px;
-          font-weight:700;
-          letter-spacing:0.5px;
-          text-shadow:0 1px 2px rgba(0,0,0,0.25);
+          font-size:18px;
+          font-weight:800;
+          letter-spacing:0.6px;
+          text-shadow:0 1px 3px rgba(0,0,0,0.3);
         ">
           #${feature.properties.no}　${feature.properties.name}
         </div>
 
-        <div style="padding:14px 16px; line-height:1.55;">
-          <div style="color:#555; margin-bottom:6px;">
+        <div style="padding:14px 18px; line-height:1.6;">
+          <div style="color:#555; margin-bottom:8px;">
             ${address}
           </div>
 
-          <div style="color:#1e88e5; font-weight:600;">
+          <div style="color:#1e88e5; font-weight:700;">
             ${date}
           </div>
         </div>
