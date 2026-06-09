@@ -1,5 +1,12 @@
 {
-  "icons": [
+  "name": "ファミマ行脚",
+  "short_name": "行脚",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#43a047",
+  "icons": 
+  [
     {
       "src": "/icon-256.png",
       "sizes": "256x256",
