@@ -8,7 +8,7 @@
   color: #222;
 }
 
-/* h2：章タイトル（落ち着いたアクセント） */
+/* h2 */
 #aboutBody h2 {
   font-size: 20px;
   margin: 28px 0 14px;
@@ -18,7 +18,7 @@
   color: #1a1a1a;
 }
 
-/* h4：小見出し（控えめに強調） */
+/* h4 */
 #aboutBody h4 {
   font-size: 16px;
   margin: 20px 0 10px;
@@ -37,7 +37,7 @@
   line-height: 1.7;
 }
 
-/* ルールブロック（読みやすいカード風） */
+/* ルールブロック */
 .rule-block {
   margin: 18px 0;
   padding: 14px 16px;
@@ -47,14 +47,14 @@
   line-height: 1.75;
 }
 
-/* 例：の部分（控えめに） */
+/* 例： */
 .rule-block .example {
   margin-top: 6px;
   color: #555;
   font-size: 14px;
 }
 
-/* hr の見た目を上品に */
+/* hr */
 #aboutBody hr {
   border: none;
   border-top: 1px solid #ddd;
