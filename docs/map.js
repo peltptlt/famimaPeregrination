@@ -2,6 +2,7 @@ window.map = new maplibregl.Map({
   container: 'map',
   center: [135.7, 35.0],
   zoom: 6,
+  attributionControl: true,
   style: {
     version: 8,
     glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
@@ -9,7 +10,8 @@ window.map = new maplibregl.Map({
       osm: {
         type: 'raster',
         tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-        tileSize: 256
+        tileSize: 256,
+        attribution: '© OpenStreetMap contributors'
       }
     },
     layers: [{
