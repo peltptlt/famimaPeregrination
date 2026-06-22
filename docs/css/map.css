@@ -10,10 +10,6 @@
   font-size: 18px;
 }
 
-.maplibregl-ctrl-attrib {
-  margin-bottom: 40px !important;
-}
-
 .maplibregl-popup-content {
   background: transparent !important;
   box-shadow: none !important;
