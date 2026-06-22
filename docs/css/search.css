@@ -9,7 +9,7 @@
 }
 @supports (-webkit-touch-callout: none) {
   #searchBox {
-    bottom: calc(env(safe-area-inset-bottom) + 70px);
+    bottom: 40px;
   }
 }
 
