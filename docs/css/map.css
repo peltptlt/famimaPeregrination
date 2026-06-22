@@ -10,14 +10,16 @@
   font-size: 18px;
 }
 
-/* MapLibre ポップアップの外側レイヤーを透明化 */
+.maplibregl-ctrl-attrib {
+  margin-bottom: 40px !important;
+}
+
 .maplibregl-popup-content {
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
 
-/* 吹き出しの三角（tip）を消す */
 .maplibregl-popup-tip {
   display: none !important;
 }
