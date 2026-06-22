@@ -9,7 +9,7 @@
 }
 @supports (-webkit-touch-callout: none) {
   #searchBox {
-    bottom: 80px;
+    bottom: 40px;
   }
 }
 
