@@ -12,11 +12,6 @@
   z-index: 9999;
   cursor: pointer;
 }
-@supports (-webkit-touch-callout: none) {
-  .menu-btn {
-    top: calc(env(safe-area-inset-top) + 10px);
-  }
-}
 
 /* list & about panel */
 .list-panel {
