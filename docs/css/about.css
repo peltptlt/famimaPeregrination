@@ -60,3 +60,49 @@
   border-top: 1px solid #ddd;
   margin: 24px 0;
 }
+
+.about-card {
+  background: #f7f9fa;
+  padding: 20px 22px;
+  border-radius: 10px;
+  margin: 24px 0;
+  border-left: 4px solid #c5d7e5;
+}
+
+.about-title {
+  font-size: 20px;
+  margin-bottom: 14px;
+  padding-left: 10px;
+  border-left: 4px solid #4a8fbd;
+  font-weight: 700;
+}
+
+.about-subtitle {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+.about-list li {
+  margin-bottom: 6px;
+  line-height: 1.8;
+}
+
+.about-note {
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.about-qa {
+  margin-top: 10px;
+}
+
+.qa-q {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.qa-a {
+  line-height: 1.8;
+}
