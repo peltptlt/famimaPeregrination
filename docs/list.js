@@ -229,3 +229,8 @@ document.addEventListener("pointsLoaded", () => {
   };
 
 });
+allPoints.forEach(f => {
+  if (!f.properties.pref) {
+    console.log("pref が空のデータ:", f);
+  }
+});
