@@ -31,7 +31,7 @@
 }
 
 /* カード */
-.rule-block {
+.about-block {
   margin: 24px 0;
   padding: 20px 22px;
   background: #f7f9fa;
@@ -41,7 +41,7 @@
 }
 
 /* 補足（例） */
-.rule-block .example {
+.about-block .example {
   margin-top: 6px;
   color: #555;
   font-size: 14px;
