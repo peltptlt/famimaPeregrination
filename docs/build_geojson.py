@@ -41,7 +41,7 @@ CITY_SUFFIX = {
 def convert_city(pref, city):
     if city in CITY_SUFFIX and pref in CITY_SUFFIX[city]:
         suffix = CITY_SUFFIX[city][pref]
-        return f"{city}({suffix})"
+        return f"{city}（{suffix}）"
     return city
 
 
