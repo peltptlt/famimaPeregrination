@@ -56,6 +56,7 @@ document.addEventListener("pointsLoaded", () => {
   // 都道府県フィルター生成
   // --------------------------------------
   Object.keys(prefOrder)
+    .map(k => norm(k))  // 正規化
     .sort((a, b) => prefOrder[a] - prefOrder[b])
     .forEach(pref => {
       const p = norm(pref);
