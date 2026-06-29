@@ -131,7 +131,13 @@ window.showPopup = function(feature) {
           <div style="color:#666; font-size:12px;">
             ${address}
           </div>
-
+          <div style="margin-top:8px;">
+            <a href="https://www.family.co.jp/shop/search.html?keyword=${encodeURIComponent(feature.properties.name)}"
+              target="_blank"
+              style="color:#1e88e5; font-weight:600; text-decoration:none;">
+              店舗公式ページ
+            </a>
+          </div>
         </div>
       </div>
     `)
