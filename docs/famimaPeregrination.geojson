@@ -110846,6 +110846,557 @@
         "city": "新潟市中央区",
         "date": "2026-06-20 15:59"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.0227428,
+          34.3103813
+        ]
+      },
+      "properties": {
+        "no": 5835,
+        "name": "ファミリーマート 高松西春日店",
+        "rename": "",
+        "address": "日本、〒761-8051 香川県高松市西春日町１６８８",
+        "pref": "香川県",
+        "city": "高松市",
+        "date": "2026-07-18 21:18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.6495411,
+          42.8452174
+        ]
+      },
+      "properties": {
+        "no": 5836,
+        "name": "ファミリーマート 千歳あずさ５丁目店",
+        "rename": "",
+        "address": "日本、〒066-0076 北海道千歳市あずさ５丁目１−１",
+        "pref": "北海道",
+        "city": "千歳市",
+        "date": "2026-07-26 13:48"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.6457583,
+          42.8326586
+        ]
+      },
+      "properties": {
+        "no": 5837,
+        "name": "ファミリーマート 千歳マルハン／Ｓ店",
+        "rename": "",
+        "address": "日本、〒066-0036 北海道千歳市北栄２丁目４−５",
+        "pref": "北海道",
+        "city": "千歳市",
+        "date": "2026-07-26 14:07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7402866,
+          34.5807922
+        ]
+      },
+      "properties": {
+        "no": 5838,
+        "name": "ファミリーマート 倉敷中島松之内店",
+        "rename": "",
+        "address": "日本、〒710-0803 岡山県倉敷市中島８１３−４",
+        "pref": "岡山県",
+        "city": "倉敷市",
+        "date": "2026-08-09 10:12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7363512,
+          34.58201
+        ]
+      },
+      "properties": {
+        "no": 5839,
+        "name": "ファミリーマート 倉敷中島南店",
+        "rename": "",
+        "address": "日本、〒710-0803 岡山県倉敷市中島９３８番地１",
+        "pref": "岡山県",
+        "city": "倉敷市",
+        "date": "2026-08-09 10:19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.3648076,
+          34.5149168
+        ]
+      },
+      "properties": {
+        "no": 5840,
+        "name": "ファミリーマート 福山千田一丁目店",
+        "rename": "",
+        "address": "日本、〒720-0017 広島県福山市千田町１丁目３１−３１ ファミリーマート福山千田一丁目店",
+        "pref": "広島県",
+        "city": "福山市",
+        "date": "2026-08-09 16:33"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.3039026,
+          34.4713199
+        ]
+      },
+      "properties": {
+        "no": 5841,
+        "name": "ファミリーマート 福山赤坂店",
+        "rename": "",
+        "address": "日本、〒720-0843 広島県福山市赤坂町赤坂１２７６−１０",
+        "pref": "広島県",
+        "city": "福山市",
+        "date": "2026-08-09 17:04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.9028056,
+          34.3518426
+        ]
+      },
+      "properties": {
+        "no": 5842,
+        "name": "ファミリーマート 竹原下野店",
+        "rename": "",
+        "address": "日本、〒725-0012 広島県竹原市下野町３１７１−３",
+        "pref": "広島県",
+        "city": "竹原市",
+        "date": "2026-08-09 18:55"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.6946903,
+          34.2347058
+        ]
+      },
+      "properties": {
+        "no": 5843,
+        "name": "ファミリーマート 呉川尻店",
+        "rename": "",
+        "address": "日本、〒737-2603 広島県呉市川尻町西２丁目２−１０",
+        "pref": "広島県",
+        "city": "呉市",
+        "date": "2026-08-10 08:44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.6279184,
+          34.2432448
+        ]
+      },
+      "properties": {
+        "no": 5844,
+        "name": "ファミリーマート 広中新開店",
+        "rename": "",
+        "address": "日本、〒737-0124 広島県呉市広中新開１丁目１１−１２ １１番 １２号",
+        "pref": "広島県",
+        "city": "呉市",
+        "date": "2026-08-10 09:15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.0511574,
+          34.2579558
+        ]
+      },
+      "properties": {
+        "no": 5845,
+        "name": "ファミリーマート 多々羅大橋前店",
+        "rename": "",
+        "address": "日本、〒794-1402 愛媛県今治市上浦町井口７４２５−１",
+        "pref": "愛媛県",
+        "city": "今治市",
+        "date": "2026-08-11 10:29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.0949874,
+          34.3054538
+        ]
+      },
+      "properties": {
+        "no": 5846,
+        "name": "ファミリーマート 瀬戸田店",
+        "rename": "",
+        "address": "日本、〒722-2414 広島県尾道市瀬戸田町鹿田原６",
+        "pref": "広島県",
+        "city": "尾道市",
+        "date": "2026-08-11 11:04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.1775954,
+          34.284746
+        ]
+      },
+      "properties": {
+        "no": 5847,
+        "name": "ファミリーマート 因島土生店",
+        "rename": "",
+        "address": "日本、〒722-2323 広島県尾道市因島土生町１８９９−１４５",
+        "pref": "広島県",
+        "city": "尾道市",
+        "date": "2026-08-11 13:34"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.1453234,
+          34.3197943
+        ]
+      },
+      "properties": {
+        "no": 5848,
+        "name": "ファミリーマート 因島重井店",
+        "rename": "",
+        "address": "日本、〒722-2102 広島県尾道市因島重井町５２７６−１７",
+        "pref": "広島県",
+        "city": "尾道市",
+        "date": "2026-08-11 13:48"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.1676764,
+          34.3229892
+        ]
+      },
+      "properties": {
+        "no": 5849,
+        "name": "ファミリーマート 因島因北店",
+        "rename": "",
+        "address": "日本、〒722-2211 広島県尾道市因島中庄町７０１",
+        "pref": "広島県",
+        "city": "尾道市",
+        "date": "2026-08-11 14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.4982882,
+          34.5061723
+        ]
+      },
+      "properties": {
+        "no": 5850,
+        "name": "ファミリーマート 笠岡市民病院前店",
+        "rename": "",
+        "address": "日本、〒714-0081 岡山県笠岡市笠岡５６１１−５",
+        "pref": "岡山県",
+        "city": "笠岡市",
+        "date": "2026-08-11 16:15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.9232406,
+          34.6287428
+        ]
+      },
+      "properties": {
+        "no": 5851,
+        "name": "ファミリーマート バイパス青江店",
+        "rename": "",
+        "address": "日本、〒700-0941 岡山県岡山市北区青江４丁目２３−１９",
+        "pref": "岡山県",
+        "city": "岡山市北区",
+        "date": "2026-08-11 17:45"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.9233688,
+          34.627932
+        ]
+      },
+      "properties": {
+        "no": 5852,
+        "name": "ファミリーマート 岡山青江六丁目店",
+        "rename": "",
+        "address": "日本、〒700-0941 岡山県岡山市南区青江６丁目５−４",
+        "pref": "岡山県",
+        "city": "岡山市南区",
+        "date": "2026-08-11 17:51"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4182222,
+          34.8334926
+        ]
+      },
+      "properties": {
+        "no": 5853,
+        "name": "ファミリーマート 相生若狭野店",
+        "rename": "",
+        "address": "日本、〒678-0081 兵庫県相生市若狭野町若狭野６６−１",
+        "pref": "兵庫県",
+        "city": "相生市",
+        "date": "2026-08-11 18:59"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.6653988,
+          34.8127295
+        ]
+      },
+      "properties": {
+        "no": 5854,
+        "name": "ファミリーマート 姫路構四丁目店",
+        "rename": "",
+        "address": "日本、〒672-8071 兵庫県姫路市飾磨区構４丁目１４６",
+        "pref": "兵庫県",
+        "city": "姫路市",
+        "date": "2026-08-11 19:33"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.6751458,
+          34.8100236
+        ]
+      },
+      "properties": {
+        "no": 5855,
+        "name": "ファミリーマート 姫路亀山店",
+        "rename": "",
+        "address": "日本、〒670-0973 兵庫県姫路市亀山１８３",
+        "pref": "兵庫県",
+        "city": "姫路市",
+        "date": "2026-08-11 19:43"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.6844355,
+          34.8150039
+        ]
+      },
+      "properties": {
+        "no": 5856,
+        "name": "ファミリーマート ジミー姫路市役所南店",
+        "rename": "",
+        "address": "日本、〒672-8049 兵庫県姫路市佃町７０−１",
+        "pref": "兵庫県",
+        "city": "姫路市",
+        "date": "2026-08-11 19:55"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.678564,
+          34.800817
+        ]
+      },
+      "properties": {
+        "no": 5857,
+        "name": "ファミリーマート 姫路玉地店",
+        "rename": "",
+        "address": "日本、〒672-8052 兵庫県姫路市飾磨区飾磨区玉地１丁目１２２",
+        "pref": "兵庫県",
+        "city": "姫路市",
+        "date": "2026-08-11 20:05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.6880448,
+          34.7988855
+        ]
+      },
+      "properties": {
+        "no": 5858,
+        "name": "ファミリーマート うかいや阿成店",
+        "rename": "",
+        "address": "日本、〒672-8030 兵庫県姫路市飾磨区阿成植木６４９",
+        "pref": "兵庫県",
+        "city": "姫路市",
+        "date": "2026-08-11 20:13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.7922304,
+          34.7767912
+        ]
+      },
+      "properties": {
+        "no": 5859,
+        "name": "ファミリーマート 高砂伊保店",
+        "rename": "",
+        "address": "日本、〒676-0078 兵庫県高砂市伊保４丁目３８２",
+        "pref": "兵庫県",
+        "city": "高砂市",
+        "date": "2026-08-11 20:34"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.818691,
+          34.7590554
+        ]
+      },
+      "properties": {
+        "no": 5860,
+        "name": "ファミリーマート 加古川稲屋店",
+        "rename": "",
+        "address": "日本、〒675-0034 兵庫県加古川市加古川町稲屋１３５−１",
+        "pref": "兵庫県",
+        "city": "加古川市",
+        "date": "2026-08-11 20:44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.8557795,
+          34.7511766
+        ]
+      },
+      "properties": {
+        "no": 5861,
+        "name": "ファミリーマート 加古川野口町店",
+        "rename": "",
+        "address": "日本、〒675-0012 兵庫県加古川市野口町野口１１９−３",
+        "pref": "兵庫県",
+        "city": "加古川市",
+        "date": "2026-08-11 20:59"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.8624379,
+          34.7444013
+        ]
+      },
+      "properties": {
+        "no": 5862,
+        "name": "ファミリーマート 平岡町新在家店",
+        "rename": "",
+        "address": "日本、〒675-0101 兵庫県加古川市平岡町新在家４６２",
+        "pref": "兵庫県",
+        "city": "加古川市",
+        "date": "2026-08-11 21:10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.9831876,
+          34.703671
+        ]
+      },
+      "properties": {
+        "no": 5863,
+        "name": "ファミリーマート 神戸平野店",
+        "rename": "",
+        "address": "日本、〒651-2251 兵庫県神戸市西区平野町下村３９１−１",
+        "pref": "兵庫県",
+        "city": "神戸市西区",
+        "date": "2026-08-11 21:39"
+      }
     }
   ]
 }
