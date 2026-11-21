@@ -111625,6 +111625,120 @@
         "city": "四日市市",
         "date": "2026-09-28 15:42"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8262183,
+          34.6838988
+        ]
+      },
+      "properties": {
+        "no": 5876,
+        "name": "ファミリーマート 奈良高天町店",
+        "rename": "",
+        "address": "日本、〒630-8241 奈良県奈良市高天町４８−５",
+        "pref": "奈良県",
+        "city": "奈良市",
+        "date": "2026-10-10 14:15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1873475,
+          33.5885532
+        ]
+      },
+      "properties": {
+        "no": 5877,
+        "name": "ファミリーマート 中津中央町二丁目店",
+        "rename": "",
+        "address": "日本、〒871-0024 大分県中津市中央町２丁目８−６７",
+        "pref": "大分県",
+        "city": "中津市",
+        "date": "2026-11-14 11:53"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1180808,
+          33.6053043
+        ]
+      },
+      "properties": {
+        "no": 5878,
+        "name": "ファミリーマート 豊前警察署前店",
+        "rename": "",
+        "address": "日本、〒828-0061 福岡県豊前市荒堀４４１−１",
+        "pref": "福岡県",
+        "city": "豊前市",
+        "date": "2026-11-14 13:33"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.738797,
+          33.746999
+        ]
+      },
+      "properties": {
+        "no": 5879,
+        "name": "ファミリーマート 直方バイパス店",
+        "rename": "",
+        "address": "日本、〒822-0002 福岡県直方市頓野３４４９−１",
+        "pref": "福岡県",
+        "city": "直方市",
+        "date": "2026-11-14 17:29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.7620114,
+          33.8473262
+        ]
+      },
+      "properties": {
+        "no": 5880,
+        "name": "ファミリーマート 茶売町店",
+        "rename": "",
+        "address": "日本、〒806-0069 福岡県北九州市八幡西区茶売町５−８",
+        "pref": "福岡県",
+        "city": "北九州市八幡西区",
+        "date": "2026-11-14 18:15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.7655008,
+          33.8633472
+        ]
+      },
+      "properties": {
+        "no": 5881,
+        "name": "ファミリーマート 八幡黒崎店",
+        "rename": "",
+        "address": "日本、〒806-0028 福岡県北九州市八幡西区熊手３丁目１−４",
+        "pref": "福岡県",
+        "city": "北九州市八幡西区",
+        "date": "2026-11-14 20:34"
+      }
     }
   ]
 }
